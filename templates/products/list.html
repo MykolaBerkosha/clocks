@@ -1,0 +1,19 @@
+
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+    <h4>{{ category.name }}</h4>
+
+    <ul>
+        {% for product in products %}
+            <li>
+                <a href="{{ product.get_absolute_url }}">
+                    {{ product.name }} - ${{ product.price }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}

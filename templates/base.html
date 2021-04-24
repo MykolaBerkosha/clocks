@@ -1,3 +1,6 @@
+
+{% load i18n %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,6 +8,14 @@
     <title>Title</title>
 </head>
 <body>
+    <ul>
+        <li>
+            <a href="{% url 'home' %}">
+                {% trans 'Home' %}
+            </a>
+        </li>
+    </ul>
+
     {% block content %}
     {% endblock %}
 </body>
