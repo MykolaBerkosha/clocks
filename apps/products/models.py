@@ -19,6 +19,8 @@ class Product(models.Model):
 
     price = models.FloatField(_('Price'))
 
+    logo = models.ImageField(_('Logo'), upload_to='product_logos')
+
     def __str__(self):
         return self.name
 

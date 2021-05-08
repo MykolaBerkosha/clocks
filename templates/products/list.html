@@ -12,6 +12,11 @@
                 <a href="{{ product.get_absolute_url }}">
                     {{ product.name }} - ${{ product.price }}
                 </a>
+                {% if product.logo %}
+                    <img src="{{ product.logo.url }}" width="100">
+                {% else %}
+                    No logo
+                {% endif %}
             </li>
         {% endfor %}
     </ul>

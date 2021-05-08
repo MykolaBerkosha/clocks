@@ -1,10 +1,34 @@
 
 {% extends 'base.html' %}
 
+{% load i18n %}
+
 
 {% block content %}
 
+    <ul>
+        <li>
+            <a href="{% url 'home' %}">
+                {% trans "Home" %}
+            </a>
+        </li>
+        <li>
+            <a href="{{ product.category.get_absolute_url }}">
+                {{ product.name }}
+            </a>
+        </li>
+        <li>
+            {{ product.name }}
+        </li>
+    </ul>
+
     <h4>{{ product.name }}</h4>
+
+    {% if product.logo %}
+        <img src="{{ product.logo.url }}">
+    {% else %}
+        No logo
+    {% endif %}
 
     <ul>
         <li>
