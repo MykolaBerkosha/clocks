@@ -2,6 +2,7 @@
 from django.shortcuts import render, get_object_or_404
 
 from apps.categories.models import Category
+from apps.products.models import Product
 
 
 
@@ -14,4 +15,13 @@ def get_products(request, category_slug, category_id):
     return render(request, 'products/list.html', {
         'category': category,
         'products': products
+    })
+
+
+def get_product(request, category_slug, category_id, slug, id):
+
+    product = get_object_or_404(Product, category_id=category_id, id=id)
+
+    return render(request, 'products/detail.html', {
+        'product': product
     })

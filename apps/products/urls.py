@@ -10,6 +10,9 @@ app_name = 'products'
 urlpatterns = [
 
     path('<str:category_slug>_<int:category_id>/', views.get_products,
-         name='list')
+         name='list'),
+
+    path('<str:category_slug>_<int:category_id>/<str:slug>_<int:id>/',
+         views.get_product, name='detail'),
 
 ]

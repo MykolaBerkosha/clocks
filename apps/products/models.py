@@ -27,10 +27,9 @@ class Product(models.Model):
         return slugify_url(self.name)
 
     def get_absolute_url(self):
-        return ''
-        # return reverse_lazy('products:detail', args=[
-        #     self.category.slug, self.category.id, self.slug, self.id
-        # ])
+        return reverse_lazy('products:detail', args=[
+            self.category.slug, self.category.id, self.slug, self.id
+        ])
 
     class Meta:
         verbose_name = _('Product')
