@@ -1,5 +1,6 @@
 
-{% load i18n %}
+{% load i18n pipeline %}
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -18,5 +19,7 @@
 
     {% block content %}
     {% endblock %}
+
+    {% javascript 'generic' %}
 </body>
 </html>

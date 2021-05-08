@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-i#3&y%*+74bf*+6!)-#t=6zuhpvxasp8le6*i37%(gjn518gm4
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -40,9 +40,42 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'pipeline',
+    'djangobower',
+
     'apps.categories',
     'apps.products'
 ]
+
+STATICFILES_STORAGE = 'pipeline.storage.PipelineStorage'
+
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'pipeline.finders.PipelineFinder',
+    'djangobower.finders.BowerFinder',
+)
+
+BOWER_COMPONENTS_ROOT = os.path.join(BASE_DIR, 'static')
+
+BOWER_INSTALLED_APPS = (
+    'jquery#3.5.1',
+)
+
+
+PIPELINE = {
+    'JS_COMPRESSOR': 'pipeline.compressors.jsmin.JSMinCompressor',
+    'CSS_COMPRESSOR': 'pipeline.compressors.cssmin.CSSMinCompressor',
+    'JAVASCRIPT': {
+        'generic': {
+            'source_filenames': (
+              'bower_components/jquery/dist/jquery.js',
+              'js/custom.js',
+            ),
+            'output_filename': 'cache/generic.js',
+        }
+    }
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -136,6 +169,10 @@ LOCALE_PATHS = [
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static-collect')
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
