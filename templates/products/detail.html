@@ -4,39 +4,50 @@
 {% load i18n %}
 
 
+{% block title %}
+    {{ product.name }}
+{% endblock %}
+
+
 {% block content %}
 
-    <ul>
-        <li>
-            <a href="{% url 'home' %}">
-                {% trans "Home" %}
-            </a>
-        </li>
-        <li>
-            <a href="{{ product.category.get_absolute_url }}">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="{% url 'home' %}">
+                    {% trans "Home" %}
+                </a>
+            </li>
+            <li class="breadcrumb-item">
+                <a href="{{ product.category.get_absolute_url }}">
+                    {{ product.name }}
+                </a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">
                 {{ product.name }}
-            </a>
-        </li>
-        <li>
-            {{ product.name }}
-        </li>
-    </ul>
+            </li>
+        </ol>
+    </nav>
 
-    <h4>{{ product.name }}</h4>
-
-    {% if product.logo %}
-        <img src="{{ product.logo.url }}">
-    {% else %}
-        No logo
-    {% endif %}
-
-    <ul>
-        <li>
-            Category: {{ product.category.name }}
-        </li>
-        <li>
-            Price: {{ product.price }}
-        </li>
-    </ul>
+    <div class="row">
+        <div class="col-4">
+            {% if product.logo %}
+                <img class="img-thumbnail img-fluid" src="{{ product.logo.url }}">
+            {% else %}
+                No logo
+            {% endif %}
+        </div>
+        <div class="col-8">
+            <h4>{{ product.name }}</h4>
+            <ul>
+                <li>
+                    Category: {{ product.category.name }}
+                </li>
+                <li>
+                    Price: {{ product.price }}
+                </li>
+            </ul>
+        </div>
+    </div>
 
 {% endblock %}

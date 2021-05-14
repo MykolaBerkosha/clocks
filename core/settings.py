@@ -60,16 +60,28 @@ BOWER_COMPONENTS_ROOT = os.path.join(BASE_DIR, 'static')
 
 BOWER_INSTALLED_APPS = (
     'jquery#3.5.1',
+    'bootstrap#5.0.1',
+    'font-awesome#5.15.3',
 )
 
 
 PIPELINE = {
     'JS_COMPRESSOR': 'pipeline.compressors.jsmin.JSMinCompressor',
     'CSS_COMPRESSOR': 'pipeline.compressors.cssmin.CSSMinCompressor',
+    'STYLESHEETS': {
+        'generic': {
+            'source_filenames': (
+                'bower_components/bootstrap/dist/css/bootstrap.css',
+                'bower_components/font-awesome/css/all.css',
+            ),
+            'output_filename': 'cache/generic.css',
+        }
+    },
     'JAVASCRIPT': {
         'generic': {
             'source_filenames': (
               'bower_components/jquery/dist/jquery.js',
+              'bower_components/bootstrap/dist/js/bootstrap.js',
               'js/custom.js',
             ),
             'output_filename': 'cache/generic.js',
@@ -100,6 +112,8 @@ TEMPLATES = [
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
+                'django.template.context_processors.static',
+                'django.template.context_processors.media',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
