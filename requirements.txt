@@ -6,3 +6,4 @@ django-pipeline==2.0.6
 django-bower==5.2.0
 cssmin==0.2.0
 jsmin==2.2.2
+django-widget-tweaks==1.4.8

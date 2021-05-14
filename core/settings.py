@@ -42,6 +42,7 @@ INSTALLED_APPS = [
 
     'pipeline',
     'djangobower',
+    'widget_tweaks',
 
     'apps.categories',
     'apps.products'
