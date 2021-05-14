@@ -15,11 +15,17 @@ class Product(models.Model):
         on_delete=models.CASCADE
     )
 
-    name = models.CharField(_('Name'), max_length=255)
+    name = models.CharField(_('Name'), max_length=255, db_index=True)
 
     price = models.FloatField(_('Price'))
 
     logo = models.ImageField(_('Logo'), upload_to='product_logos')
+
+    tags = models.TextField(
+        _('Tags'),
+        max_length=1000,
+        db_index=True,
+        blank=True)
 
     def __str__(self):
         return self.name

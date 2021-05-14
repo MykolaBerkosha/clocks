@@ -6,7 +6,7 @@
 
 {% block content %}
 
-    <h4>{{ category.name }}</h4>
+    <h4>{% trans 'Search by' %} {{ request.GET.query }}</h4>
 
     <ul>
         {% for product in products %}

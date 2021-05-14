@@ -1,4 +1,5 @@
 
+from django.db.models import Q
 from django.shortcuts import render, get_object_or_404
 
 from apps.categories.models import Category
@@ -9,8 +10,13 @@ def get_search(request):
 
     query = request.GET.get('query')
 
-    if query:
-        products = Product.objects.filter(name__icontains=query.strip())
+    trimmed_query = query.strip()
+
+    if trimmed_query:
+        products = Product.objects.filter(
+            Q(name__icontains=trimmed_query) |
+            Q(tags__icontains=trimmed_query)
+        )
     else:
         products = []
 
