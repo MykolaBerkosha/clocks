@@ -5,6 +5,19 @@ from apps.categories.models import Category
 from apps.products.models import Product
 
 
+def get_search(request):
+
+    query = request.GET.get('query')
+
+    if query:
+        products = Product.objects.filter(name__icontains=query.strip())
+    else:
+        products = []
+
+    return render(request, 'products/search.html', {
+        'products': products
+    })
+
 
 def get_products(request, category_slug, category_id):
 

@@ -9,6 +9,8 @@ app_name = 'products'
 
 urlpatterns = [
 
+    path('search/', views.get_search, name='search'),
+
     path('<str:category_slug>_<int:category_id>/', views.get_products,
          name='list'),
 
