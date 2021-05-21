@@ -2,6 +2,8 @@
 from django.db.models import Q
 from django.shortcuts import render, get_object_or_404
 
+from pagination import paginate
+
 from apps.categories.models import Category
 from apps.products.models import Product
 from apps.products.forms import ProductSearchForm
@@ -45,7 +47,7 @@ def get_products(request, category_slug, category_id):
 
     return render(request, 'products/list.html', {
         'category': category,
-        'products': products
+        'page_obj': paginate(request, products)
     })
 
 
