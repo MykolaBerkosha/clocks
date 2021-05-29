@@ -1,7 +1,7 @@
 
 {% extends 'base.html' %}
 
-{% load i18n %}
+{% load i18n thumbnail %}
 
 
 {% block title %}
@@ -31,14 +31,20 @@
 
     <div class="row">
         <div class="col-4">
-            {% if product.logo %}
-                <img class="img-thumbnail img-fluid" src="{{ product.logo.url }}">
-            {% else %}
+            {% thumbnail product.logo "100"  crop="center" as img %}
+                <img src="{{ img.url }}" class="img-thumbnail img-fluid">
+            {% empty %}
                 No logo
-            {% endif %}
+            {% endthumbnail %}
         </div>
+
         <div class="col-8">
             <h4>{{ product.name }}</h4>
+            {% if request.user.is_staff %}
+                <a href="{% url 'admin:products_product_change' product.id %}" target="_blank">
+                    Edit
+                </a>
+            {% endif %}
             <ul>
                 <li>
                     Category: {{ product.category.name }}
