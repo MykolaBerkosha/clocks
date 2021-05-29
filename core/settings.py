@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'ordered_model',
     'slider',
 
+    'apps.cart',
     'apps.categories',
     'apps.products'
 ]

@@ -1,0 +1,26 @@
+
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+    <h4>Cart</h4>
+
+    <table class="table table-bordered">
+        <thead>
+            <th>#</th>
+            <th>Name</th>
+            <th>Price</th>
+        </thead>
+        <tbody>
+            {% for product in cart.get_products %}
+                <tr>
+                    <td>{{ product.id }}</td>
+                    <td>{{ product.name }}</td>
+                    <td>{{ product.price }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

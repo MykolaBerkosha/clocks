@@ -4,6 +4,7 @@ from django.shortcuts import render, get_object_or_404
 
 from pagination import paginate
 
+from apps.cart.lib import Cart
 from apps.categories.models import Category
 from apps.products.models import Product
 from apps.products.forms import ProductSearchForm
@@ -43,7 +44,7 @@ def get_products(request, category_slug, category_id):
 
     category = get_object_or_404(Category, id=category_id)
 
-    products = category.products.all()
+    products = category.products.all().order_by('-id')
 
     return render(request, 'products/list.html', {
         'category': category,
@@ -55,6 +56,9 @@ def get_product(request, category_slug, category_id, slug, id):
 
     product = get_object_or_404(Product, category_id=category_id, id=id)
 
+    cart = Cart(request.session)
+
     return render(request, 'products/detail.html', {
-        'product': product
+        'product': product,
+        'is_added_to_cart': cart.has_product(id)
     })
