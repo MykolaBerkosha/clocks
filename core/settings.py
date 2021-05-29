@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'widget_tweaks',
     'pagination',
     'sorl.thumbnail',
+    'watermarks',
 
     'apps.categories',
     'apps.products'

@@ -9,3 +9,4 @@ jsmin==2.2.2
 django-widget-tweaks==1.4.8
 django-mp-pagination==0.2
 sorl-thumbnail==12.7.0
+django-watermarks==2.0
