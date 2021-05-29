@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'djangobower',
     'widget_tweaks',
     'pagination',
+    'sorl.thumbnail',
 
     'apps.categories',
     'apps.products'
