@@ -46,6 +46,8 @@ INSTALLED_APPS = [
     'pagination',
     'sorl.thumbnail',
     'watermarks',
+    'ordered_model',
+    'slider',
 
     'apps.categories',
     'apps.products'

@@ -1,9 +1,13 @@
 
 {% extends 'base.html' %}
 
+{% load slider %}
+
 
 {% block content %}
     It's home page
+
+    {% render_slider %}
 
     <ul>
         {% for category in categories %}
