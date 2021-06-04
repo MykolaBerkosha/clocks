@@ -8,10 +8,12 @@
 
     <table class="table table-bordered">
         <thead>
-            <th>#</th>
-            <th>Name</th>
-            <th>Price</th>
-            <th>Remove</th>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Remove</th>
+            </tr>
         </thead>
         <tbody>
             {% for product in cart.get_products %}
@@ -22,6 +24,7 @@
                     <td>
                         <form action="{% url 'cart:remove' %}" method="post">
                             {% csrf_token %}
+                            <input type="hidden" name="next" value="{{ request.get_full_path }}">
                             <button type="submit"
                                     name="product"
                                     class="btn btn-danger"

@@ -38,4 +38,4 @@ def remove_from_cart(request):
 
     cart.remove_product(product_id)
 
-    return request
+    return redirect(request.POST.get('next'))
