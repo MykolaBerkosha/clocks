@@ -17,6 +17,10 @@ class Cart(object):
         self._data.remove(product_id)
         self._commit()
 
+    def clear(self):
+        self._data.clear()
+        self._commit()
+
     def has_product(self, product_id):
         return str(product_id) in self._data
 
