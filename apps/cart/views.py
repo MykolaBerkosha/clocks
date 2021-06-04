@@ -26,3 +26,16 @@ def add_to_cart(request):
     cart.add_product(product_id)
 
     return redirect(request.POST.get('next'))
+
+
+def remove_from_cart(request):
+
+    product_id = request.POST.get('product')
+
+    get_object_or_404(Product, id=product_id)
+
+    cart = Cart(request.session)
+
+    cart.remove_product(product_id)
+
+    return request
