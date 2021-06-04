@@ -13,6 +13,10 @@ class Cart(object):
         self._data.add(product_id)
         self._commit()
 
+    def remove_product(self, product_id):
+        self._data.remove(product_id)
+        self._commit()
+
     def has_product(self, product_id):
         return str(product_id) in self._data
 
