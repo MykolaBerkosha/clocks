@@ -25,3 +25,11 @@ class Cart(object):
 
     def get_products(self):
         return Product.objects.filter(id__in=self._data)
+
+    @property
+    def count(self):
+        return self.get_products().count()
+
+    @property
+    def total(self):
+        return sum(self.get_products().values_list('price', flat=True))

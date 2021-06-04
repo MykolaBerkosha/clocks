@@ -1,5 +1,8 @@
 
-{% load i18n pipeline %}
+{% load i18n pipeline cart %}
+
+
+{% get_cart as cart %}
 
 
 <!DOCTYPE html>
@@ -40,7 +43,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'cart:index' %}">
-                            Cart
+                            Cart ({{ cart.count }} / {{ cart.total }} uah)
                         </a>
                     </li>
                     <li class="nav-item dropdown">

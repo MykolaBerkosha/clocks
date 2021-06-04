@@ -7,12 +7,7 @@ from apps.cart.lib import Cart
 
 
 def index(request):
-
-    cart = Cart(request.session)
-
-    return render(request, 'cart/index.html', {
-        'cart': cart
-    })
+    return render(request, 'cart/index.html', {})
 
 
 def add_to_cart(request):
