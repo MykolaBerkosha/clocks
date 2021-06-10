@@ -1,0 +1,16 @@
+
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+    {% for object in object_list %}
+        <div>
+            <p>{{ object.name }}</p>
+            <p>{{ object.text }}</p>
+            <p>Raing: {{ object.rating }}</p>
+            <hr>
+        </div>
+    {% endfor %}
+
+{% endblock %}

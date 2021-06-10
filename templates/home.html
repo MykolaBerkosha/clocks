@@ -1,11 +1,14 @@
 
 {% extends 'base.html' %}
 
-{% load slider %}
+{% load slider i18n %}
 
 
 {% block content %}
-    It's home page
+
+    <a href="{% url 'reviews:add' %}">
+        {% trans "Add review" %}
+    </a>
 
     {% render_slider %}
 

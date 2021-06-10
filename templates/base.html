@@ -46,6 +46,12 @@
                             Cart ({{ cart.count }} / {{ cart.total }} uah)
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link"
+                           href="{% url 'reviews:list' %}">
+                            {% trans 'Reviews' %}
+                        </a>
+                    </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Dropdown
@@ -79,14 +85,6 @@
     </nav>
 
     <div class="container">
-        {% if messages %}
-            <ul class="messages">
-                {% for message in messages %}
-                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-                {% endfor %}
-            </ul>
-        {% endif %}
-
         {% block content %}
         {% endblock %}
     </div>

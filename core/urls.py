@@ -17,6 +17,8 @@ urlpatterns = [
 
     path('orders/', include('apps.orders.urls')),
 
+    path('reviews/', include('apps.reviews.urls')),
+
     path('', home, name='home')
 
 ] + static(
