@@ -46,4 +46,6 @@ def clear_cart(request):
 
     cart.clear()
 
+    messages.warning(request, _('Cart was cleared'))
+
     return redirect(request.POST.get('next'))

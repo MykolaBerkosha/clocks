@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'watermarks',
     'ordered_model',
     'slider',
+    'notify',
 
     'apps.cart',
     'apps.categories',

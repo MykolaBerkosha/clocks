@@ -1,5 +1,5 @@
 
-{% load i18n pipeline cart %}
+{% load i18n pipeline cart notify %}
 
 
 {% get_cart as cart %}
@@ -92,5 +92,8 @@
     </div>
 
     {% javascript 'generic' %}
+
+    {% notify_js %}
+
 </body>
 </html>
