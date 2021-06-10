@@ -34,3 +34,12 @@ def remove_from_cart(request):
     cart.remove_product(product_id)
 
     return redirect(request.POST.get('next'))
+
+
+def clear_cart(request):
+
+    cart = Cart(request.session)
+
+    cart.clear()
+
+    return redirect(request.POST.get('next'))
