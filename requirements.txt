@@ -14,3 +14,5 @@ django-mp-slider==0.3
 django-ordered-model==3.4.3
 django-mp-notify==0.1
 django-ckeditor==6.1.0
+
+-e git://github.com/darklow/django-suit.git@v2#egg=django-suit
