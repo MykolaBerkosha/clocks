@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'ordered_model',
     'slider',
     'notify',
+    'ckeditor',
 
     'apps.cart',
     'apps.categories',

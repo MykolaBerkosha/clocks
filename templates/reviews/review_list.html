@@ -7,7 +7,7 @@
     {% for object in object_list %}
         <div>
             <p>{{ object.name }}</p>
-            <p>{{ object.text }}</p>
+            <p>{{ object.text|safe }}</p>
             <p>Raing: {{ object.rating }}</p>
             <hr>
         </div>
