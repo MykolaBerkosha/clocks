@@ -11,3 +11,8 @@ class ProductSearchForm(forms.Form):
     category = forms.ModelChoiceField(
         required=False,
         queryset=Category.objects.all())
+
+
+class ProductImportForm(forms.Form):
+
+    file = forms.FileField()
