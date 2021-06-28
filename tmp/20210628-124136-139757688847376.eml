@@ -1,0 +1,29 @@
+Content-Type: multipart/alternative;
+ boundary="===============5654806788545607078=="
+MIME-Version: 1.0
+Subject: [Django] New order #5
+From: root@localhost
+To: kolya@gmail.com
+Date: Mon, 28 Jun 2021 12:41:36 -0000
+Message-ID: <162488409640.18138.13994268265131097398@dev-Nitro-55>
+
+--===============5654806788545607078==
+Content-Type: text/html; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+    <h2>New order #5</h2>
+    <b>First name</b>: Микола
+
+</body>
+</html>
+--===============5654806788545607078==--
+
+-------------------------------------------------------------------------------

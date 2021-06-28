@@ -29,6 +29,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+MANAGERS = (
+    ('Dev', 'kolya@gmail.com'),
+)
+
 
 # Application definition
 
@@ -135,6 +139,9 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'core.wsgi.application'
 
+
+EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
+EMAIL_FILE_PATH = os.path.join(BASE_DIR, 'tmp')
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
