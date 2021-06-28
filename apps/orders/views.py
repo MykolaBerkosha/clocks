@@ -16,7 +16,12 @@ def checkout(request):
     cart = Cart(request.session)
 
     if request.method == 'POST' and form.is_valid():
+
         order = form.save()
+
+        for product in cart.get_products():
+            order.items.create(product=product, price=product.price)
+
         cart.clear()
 
         mail_managers(

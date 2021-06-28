@@ -19,3 +19,16 @@ class Order(models.Model):
     class Meta:
         verbose_name = _('Order')
         verbose_name_plural = _('Orders')
+
+
+class OrderedProduct(models.Model):
+
+    order = models.ForeignKey(
+        Order, on_delete=models.CASCADE, related_name='items')
+
+    product = models.ForeignKey('products.Product', on_delete=models.PROTECT)
+
+    price = models.FloatField()
+
+    def __str__(self):
+        return '{} {}'.format(self.product.name, self.product.price)
