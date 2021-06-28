@@ -17,6 +17,8 @@ urlpatterns = [
     path('<str:category_slug>_<int:category_id>/<str:slug>_<int:id>/',
          views.get_product, name='detail'),
 
-    path('import/', views.import_products, name='import')
+    path('import/', views.import_products, name='import'),
+
+    path('export/', views.export_products, name='export')
 
 ]

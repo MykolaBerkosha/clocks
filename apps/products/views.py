@@ -1,8 +1,10 @@
 
+from datetime import datetime
+
 from django.db.models import Q
 from django.contrib import admin
 from django.contrib import messages
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, get_object_or_404, redirect, HttpResponse
 
 from pagination import paginate
 
@@ -86,3 +88,16 @@ def import_products(request):
     context['form'] = form
 
     return render(request, 'products/import.html', context)
+
+
+def export_products(request):
+
+    file_name = datetime.now().strftime('%d.%m.%Y ')
+
+    response = HttpResponse(content_type='text/csv')
+    response["Content-Disposition"] = (
+        'attachment; filename="{}.csv"'.format(file_name))
+
+    lib.export_products(response)
+
+    return response

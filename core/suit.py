@@ -15,6 +15,10 @@ class SuitConfig(DjangoSuitConfig):
                 ChildItem(
                     label='Import products',
                     url='products:import'
+                ),
+                ChildItem(
+                    label='Export products',
+                    url='products:export'
                 )
             ]
         ),
