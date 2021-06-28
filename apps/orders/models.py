@@ -11,6 +11,8 @@ class Order(models.Model):
 
     mobile = models.CharField(_('Mobile number'), max_length=255)
 
+    created = models.DateTimeField(_('Created'), auto_now_add=True)
+
     def __str__(self):
         return 'Order #{} for {}'.format(self.id or '?', self.first_name)
 
