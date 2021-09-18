@@ -89,9 +89,11 @@
         {% endblock %}
     </div>
 
-    {% javascript 'generic' %}
+    {% block js %}
+        {% javascript 'generic' %}
 
-    {% notify_js %}
+        {% notify_js %}
+    {% endblock %}
 
 </body>
 </html>

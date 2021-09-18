@@ -54,7 +54,10 @@
                 </li>
             </ul>
 
-            <form action="{% url 'orders:quick-checkout' %}" method="post" class="mb-5">
+            <form action="{% url 'orders:quick-checkout' %}"
+                  method="post"
+                  data-role="quick-checkout-form"
+                  class="mb-5">
 
                 {% csrf_token %}
 
@@ -82,4 +85,31 @@
         </div>
     </div>
 
+{% endblock %}
+
+
+{% block js %}
+    {{ block.super }}
+
+    <script>
+        (function ($) {
+
+            var $form = $('[data-role=quick-checkout-form]');
+
+            $form.submit(function (event) {
+                event.preventDefault();
+
+                $.post($form.prop('action'), $form.serialize(), function (response) {
+                    $form.remove();
+
+                    $.notify({
+                        message: response.message
+                    }, {
+                        type: 'success'
+                    });
+                });
+            });
+
+        })(jQuery);
+    </script>
 {% endblock %}
