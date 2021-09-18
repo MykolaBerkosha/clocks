@@ -54,6 +54,20 @@
                 </li>
             </ul>
 
+            <form action="{% url 'orders:quick-checkout' %}" method="post" class="mb-5">
+
+                {% csrf_token %}
+
+                {{ quick_checkout_form.product }}
+
+                <div class="input-group">
+                    {{ quick_checkout_form.mobile }}
+                    <button class="btn btn-outline-secondary" type="submit">
+                        {% trans "Buy" %}
+                    </button>
+                </div>
+            </form>
+
             <form action="{% url 'cart:add' %}" method="post">
                 {% csrf_token %}
                 <input type="hidden" name="next" value="{{ request.get_full_path }}">

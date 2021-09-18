@@ -9,6 +9,7 @@ from django.shortcuts import render, get_object_or_404, redirect, HttpResponse
 from pagination import paginate
 
 from apps.cart.lib import Cart
+from apps.orders.forms import QuickCheckoutForm
 from apps.categories.models import Category
 from apps.products import lib
 from apps.products.models import Product
@@ -65,7 +66,10 @@ def get_product(request, category_slug, category_id, slug, id):
 
     return render(request, 'products/detail.html', {
         'product': product,
-        'is_added_to_cart': cart.has_product(id)
+        'is_added_to_cart': cart.has_product(id),
+        'quick_checkout_form': QuickCheckoutForm(initial={
+            'product': product
+        })
     })
 
 
