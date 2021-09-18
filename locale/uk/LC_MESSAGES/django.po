@@ -36,3 +36,12 @@ msgstr "Категорії"
 #: templates/base.html:14
 msgid "Home"
 msgstr "Головна"
+
+#: templates/base.html:14
+msgid "Cart"
+msgstr "пль"
+
+
+
+
+
