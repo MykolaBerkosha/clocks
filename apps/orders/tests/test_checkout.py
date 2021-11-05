@@ -1,4 +1,4 @@
-
+import order as order
 from django.test import TestCase
 
 from apps.categories.models import Category
@@ -63,3 +63,45 @@ class Case(TestCase):
 
         self.assertEqual(items[1].product_id, self.product_2.pk)
         self.assertEqual(items[1].price, self.product_2.price)
+        print('test_1')
+
+    def test_quick_checkout(self):
+
+        url = '/orders/quick-checkout/'
+
+        response = self.client.post(url, {
+            'mobile': '0674756206'
+        })
+
+        orders = list(Order.objects.all())
+
+        self.assertEqual(len(orders), 0)
+
+        order = orders
+
+        self.assertEqual(order.mobile, '0674756206')
+
+        items = list(order.items.all())
+
+
+        # self.assertEqual(produt.mobile, '0674756206')
+        # self.assertEqual(order.product_id, '50')
+
+
+
+
+
+
+
+
+        # items = list(product.items.all())
+        #
+        # self.assertEqual(len(items), 1)
+        #
+        #
+        #     self.assertEqual(items[0].product_id, self.product_1.pk)
+        #     self.assertEqual(items[0].price, self.product_1.price)
+
+
+        # self.assertEqual(response.mobile, '0674756206')
+
