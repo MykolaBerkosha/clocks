@@ -2,6 +2,7 @@
 from django.contrib import messages
 from django.shortcuts import redirect, get_object_or_404, render
 from django.utils.translation import ugettext_lazy as _
+from django.views.decorators.http import require_POST
 
 from apps.products.models import Product
 
@@ -12,6 +13,7 @@ def index(request):
     return render(request, 'cart/index.html', {})
 
 
+@require_POST
 def add_to_cart(request):
 
     product_id = request.POST.get('product')
@@ -27,6 +29,7 @@ def add_to_cart(request):
     return redirect(request.POST.get('next'))
 
 
+@require_POST
 def remove_from_cart(request):
 
     product_id = request.POST.get('product')
@@ -40,6 +43,7 @@ def remove_from_cart(request):
     return redirect(request.POST.get('next'))
 
 
+@require_POST
 def clear_cart(request):
 
     cart = Cart(request.session)
