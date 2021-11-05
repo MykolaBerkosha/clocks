@@ -54,7 +54,6 @@ def quick_checkout(request):
             mobile=form.cleaned_data['mobile']
         )
 
-
         product = form.cleaned_data['product']
 
         order.items.create(product=product, price=product.price)
