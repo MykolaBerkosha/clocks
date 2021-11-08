@@ -63,3 +63,32 @@ class Case(TestCase):
 
         self.assertEqual(items[1].product_id, self.product_2.pk)
         self.assertEqual(items[1].price, self.product_2.price)
+
+
+    def test_quick_checkout(self):
+
+        url = '/orders/quick-checkout/'
+
+        response = self.client.post(url, {
+            'product': '1',
+            'mobile': '+380971410320'
+        })
+
+        self.assertEqual(response.status_code, 200)
+
+        orders = list(Order.objects.all())
+
+        self.assertEqual(len(orders), 1)
+
+        order = orders[0]
+
+        self.assertEqual(order.mobile, '+380971410320')
+
+        items = list(order.items.all())
+
+        self.assertEqual(len(items), 1)
+
+        product = self.product_1
+
+        self.assertEqual(items[0].product_id, product.pk)
+        self.assertEqual(items[0].price, product.price)
