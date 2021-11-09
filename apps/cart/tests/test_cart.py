@@ -1,4 +1,6 @@
 
+from unittest.mock import Mock, patch
+
 from django.test import TestCase
 
 from apps.categories.models import Category
@@ -25,7 +27,6 @@ class Case(TestCase):
             name='Test 2',
             price=200
         )
-
 
     def test_add_to_cart(self):
 
@@ -90,3 +91,17 @@ class Case(TestCase):
 
         self.assertEqual(cart.count, 2)
         self.assertEqual(cart.total, 300)
+
+    def test_cart(self):
+
+        product = Mock()
+        product.get_name = Mock(return_value='Test')
+
+        with patch.object(Cart, 'add_product', return_value=product) as mock_method:
+            self.client.post('/cart/add', {
+                'product': self.product_1.pk,
+                'next': '/'
+            })
+
+        mock_method.assert_called_once_with(str(self.product_1.pk))
+        product.get_name.assert_called_once_with(123)
