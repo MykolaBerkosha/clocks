@@ -41,7 +41,6 @@ class Case(TestCase):
             'last_name': 'Беркоша',
             'mobile': '0674756206'
         })
-
         self.assertRedirects(response, '/')
 
         orders = list(Order.objects.all())
@@ -63,45 +62,57 @@ class Case(TestCase):
 
         self.assertEqual(items[1].product_id, self.product_2.pk)
         self.assertEqual(items[1].price, self.product_2.price)
-        print('test_1')
 
     def test_quick_checkout(self):
 
         url = '/orders/quick-checkout/'
 
         response = self.client.post(url, {
+            'product': self.product_1.pk,
             'mobile': '0674756206'
         })
 
+        self.assertEqual(response.status_code, 200)
+
         orders = list(Order.objects.all())
 
-        self.assertEqual(len(orders), 0)
+        self.assertEqual(len(orders), 1)
 
-        order = orders
+        order = orders[0]
 
         self.assertEqual(order.mobile, '0674756206')
 
         items = list(order.items.all())
 
+        self.assertEqual(len(items), 1)
 
-        # self.assertEqual(produt.mobile, '0674756206')
-        # self.assertEqual(order.product_id, '50')
+        product = self.product_1
 
+        self.assertEqual(items[0].product_id, product.pk)
+        self.assertEqual(items[0].price, product.price)
 
+    def test_checkout_incorrect_data(self):
 
+        session = self.client.session
+        session.update({
+            'cart': [self.product_1.pk]
+        })
+        session.save()
 
+        url = '/orders/checkout/'
 
+        self.client.post(url, {
+            'first_name': '//VASIA',
+            'last_name': 'PUPKIN',
+            'mobile': ''
+        })
 
+        orders = list(Order.objects.all())
 
+        self.assertEqual(len(orders), 1)
 
-        # items = list(product.items.all())
-        #
-        # self.assertEqual(len(items), 1)
-        #
-        #
-        #     self.assertEqual(items[0].product_id, self.product_1.pk)
-        #     self.assertEqual(items[0].price, self.product_1.price)
+        order = orders[0]
 
-
-        # self.assertEqual(response.mobile, '0674756206')
-
+        self.assertNotEqual(order.first_name, 'VASIA')
+        self.assertNotEqual(order.last_name, 'PUPKIN')
+        self.assertNotEqual(order.mobile, '')
