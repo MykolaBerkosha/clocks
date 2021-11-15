@@ -14,6 +14,9 @@ from apps.categories.models import Category
 from apps.products import lib
 from apps.products.models import Product
 from apps.products.forms import ProductSearchForm, ProductImportForm
+import xlwt
+
+from django.http import HttpResponse
 
 
 def get_search(request):
@@ -94,7 +97,7 @@ def import_products(request):
     return render(request, 'products/import.html', context)
 
 
-def export_products(request):
+def export_products_csv(request):
 
     file_name = datetime.now().strftime('%d.%m.%Y ')
 
@@ -102,6 +105,35 @@ def export_products(request):
     response["Content-Disposition"] = (
         'attachment; filename="{}.csv"'.format(file_name))
 
-    lib.export_products(response)
+    lib.export_products_csv(response)
 
+    return response
+
+def export_products_xls(request):
+    response = HttpResponse(content_type='application/ms-excel')
+    response['Content-Disposition'] = 'attachment; filename="users.xls"'
+
+    wb = xlwt.Workbook(encoding='utf-8')
+    ws = wb.add_sheet('Product')
+
+    row_num = 0
+
+    font_style = xlwt.XFStyle()
+    font_style.font.bold = True
+
+    columns = ['Category name', 'Product name', 'Price', 'Tags', ]
+
+    for col_num in range(len(columns)):
+        ws.write(row_num, col_num, columns[col_num], font_style)
+
+    font_style = xlwt.XFStyle()
+
+    rows = Product.objects.all().values_list('name', 'price',
+                                          'tags')
+    for row in rows:
+        row_num += 1
+        for col_num in range(len(row)):
+            ws.write(row_num, col_num, row[col_num], font_style)
+
+    wb.save(response)
     return response

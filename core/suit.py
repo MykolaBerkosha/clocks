@@ -17,8 +17,12 @@ class SuitConfig(DjangoSuitConfig):
                     url='products:import'
                 ),
                 ChildItem(
-                    label='Export products',
-                    url='products:export'
+                    label='Export products in ccv',
+                    url='products:csv_export'
+                ),
+                ChildItem(
+                    label='Export products in xls',
+                    url='products:xls_export'
                 )
             ]
         ),

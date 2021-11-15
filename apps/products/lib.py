@@ -27,7 +27,7 @@ def import_products(file):
         )
 
 
-def export_products(response):
+def export_products_csv(response):
 
     writer = csv.writer(response)
 

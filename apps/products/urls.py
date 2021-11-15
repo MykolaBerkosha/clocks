@@ -19,6 +19,8 @@ urlpatterns = [
 
     path('import/', views.import_products, name='import'),
 
-    path('export/', views.export_products, name='export')
+    path('csv_export/', views.export_products_csv, name='csv_export'),
+
+    path('xls_export/', views.export_products_xls, name='xls_export')
 
 ]
