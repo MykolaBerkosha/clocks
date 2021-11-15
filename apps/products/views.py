@@ -128,8 +128,7 @@ def export_products_xls(request):
 
     font_style = xlwt.XFStyle()
 
-    rows = Product.objects.all().values_list('name', 'price',
-                                          'tags')
+    rows = Product.objects.all().values_list('category','name', 'price','tags')
     for row in rows:
         row_num += 1
         for col_num in range(len(row)):
