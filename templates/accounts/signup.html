@@ -22,7 +22,7 @@
                         <div class="input-group">
                             <span class="input-group-addon">
                                 <span class="input-icon input-icon-user"></span>
-                                <span class="input-text">{{ form.username.label }} *</span>
+                                <span class="input-text">{{ form.username.label }}</span>
                             </span>
                             {{ form.username|add_class:"form-control input-lg" }}
                             <div class="help-block">{{ form.username.errors }}</div>
@@ -31,7 +31,7 @@
                         <div class="input-group">
                             <span class="input-group-addon">
                                 <span class="input-icon input-icon-email"></span>
-                                <span class="input-text">{{ form.email.label }} *</span>
+                                <span class="input-text">{{ form.email.label }}</span>
                             </span>
                             {{ form.email|add_class:"form-control input-lg" }}
                             <div class="help-block">{{ form.email.errors }}</div>
@@ -40,7 +40,7 @@
                         <div class="input-group">
                             <span class="input-group-addon">
                                 <span class="input-icon input-icon-password"></span>
-                                <span class="input-text">{{ form.password1.label }} *</span>
+                                <span class="input-text">{{ form.password1.label }}</span>
                             </span>
                             {{ form.password1|add_class:"form-control input-lg" }}
                             <div class="help-block">{{ form.password1.errors }}</div>
@@ -49,18 +49,17 @@
                         <div class="input-group">
                             <span class="input-group-addon">
                                 <span class="input-icon input-icon-password"></span>
-                                <span class="input-text">{{ form.password2.label }} *</span>
+                                <span class="input-text">{{ form.password2.label }}</span>
                             </span>
                             {{ form.password2|add_class:"form-control input-lg" }}
                             <div class="help-block">{{ form.password2.errors }}</div>
                         </div>
-
                         <div class="input-group {% if form.captcha.errors %}has-error{% endif %} col-xs-12">
-                            {{ form.captcha.label_tag }} *
+                            {{ form.captcha.label_tag }}
                             {{ form.captcha }}
                             <div class="help-block">{{ form.captcha.errors }}</div>
+                            <script src='https://www.google.com/recaptcha/api.js'></script>
                         </div>
-
                         <button class="btn btn-block btn-custom-2">
                             <i class="fa fa-check"></i>
                             {% trans 'Створити аккаунт' %}

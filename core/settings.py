@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     'slider',
     'notify',
     'ckeditor',
+    'captcha',
 
     'apps.cart',
     'apps.categories',
@@ -64,9 +65,6 @@ INSTALLED_APPS = [
     'accounts'
 
 ]
-
-LOGIN_REDIRECT_URL = '/'
-LOGIN_URL = 'accounts:login'
 
 STATICFILES_STORAGE = 'pipeline.storage.PipelineStorage'
 
@@ -221,3 +219,8 @@ MEDIA_URL = '/media/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 TEMPLATE_DIRS = (os.path.join(BASE_DIR,  'templates'),)
+
+RECAPTCHA_PRIVATE_KEY='6LdT7m8dAAAAADX_ZKrvzsiDPOAwUxgMop9Hij71'
+RECAPTCHA_PUBLIC_KEY='6LdT7m8dAAAAAErm3MxtbGJWBzUzwRvSNpmzvd9c'
+NOCAPTCHA = True
+RECAPTCHA_DOMAIN = 'localhost'

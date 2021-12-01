@@ -15,7 +15,7 @@ django-ordered-model==3.4.3
 django-mp-notify==0.1
 django-ckeditor==6.1.0
 django-mp-accounts==3.2
-django-recaptcha
+django-recaptcha==2.0.6
 
 
 bs4
