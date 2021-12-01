@@ -22,9 +22,11 @@ def add_to_cart(request):
 
     cart = Cart(request.session)
 
-    product = cart.add_product(product_id)
+    cart.add_product(product_id)
 
-    print('Cool' + str(product.get_name(123)))
+    # product = cart.add_product(product_id)
+
+    # print('Cool' + str(product.get_name(123)))
 
     messages.success(request, _('Product added to cart'))
 

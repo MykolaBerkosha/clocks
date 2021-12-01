@@ -14,6 +14,9 @@ django-mp-slider==0.3
 django-ordered-model==3.4.3
 django-mp-notify==0.1
 django-ckeditor==6.1.0
+django-mp-accounts==3.2
+django-recaptcha
+
 
 bs4
 

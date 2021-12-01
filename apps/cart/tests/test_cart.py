@@ -105,3 +105,39 @@ class Case(TestCase):
 
         mock_method.assert_called_once_with(str(self.product_1.pk))
         product.get_name.assert_called_once_with(123)
+
+    # def test_send_mail(self):
+    #     mock_mail_manager = Mock()
+    #     with patch.object('mail_managers', return_value=order) as mock_method:
+    #         self.client.post('/cart/add', {
+    #             'product': self.product_1.pk,
+    #             'next': '/'
+    #         })
+    #
+    #     mock_method.assert_called_once_with(str(self.product_1.pk))
+    #     product.get_name.assert_called_once_with(123)
+
+    # def test_send_mail(self):
+    #
+    #     order = Mock()
+    #     order.get_name = Mock(return_value='Test')
+    #
+    #     with patch.object(mail_managers, 'add_product', return_value=order) as mock_method:
+    #         self.client.post('/cart/add', {
+    #             'product': self.product_1.pk,
+    #             'next': '/'
+    #         })
+    #
+    #     mock_method.assert_called_once_with(str(self.product_1.pk))
+    #     order.get_name.assert_called_once_with(123)
+    # class RegisterTestCase(TestCase):
+        # def test_mail_is_sent(self):
+        #
+        #     with patch('django.core.mail.send_mail') as mocked_send_mail:
+        #         from register.models import Subscriber  #This test still fails if I have the import outside the mock context
+        #         subscriber = Subscriber.objects.create(
+        #             email = 'te...@example.com',
+        #         )
+        #         self.assertTrue(mocked_send_mail.called)
+        #         self.assertFalse(subscriber.active)
+        #         self.assertEqual(mocked_send_mail.call_args['recipient_list'], 'te...@example.com')

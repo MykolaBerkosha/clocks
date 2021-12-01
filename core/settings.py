@@ -60,8 +60,13 @@ INSTALLED_APPS = [
     'apps.categories',
     'apps.orders',
     'apps.reviews',
-    'apps.products'
+    'apps.products',
+    'accounts'
+
 ]
+
+LOGIN_REDIRECT_URL = '/'
+LOGIN_URL = 'accounts:login'
 
 STATICFILES_STORAGE = 'pipeline.storage.PipelineStorage'
 
