@@ -29,6 +29,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+
 MANAGERS = (
     ('Dev', 'kolya@gmail.com'),
 )
@@ -220,7 +221,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 TEMPLATE_DIRS = (os.path.join(BASE_DIR,  'templates'),)
 
-RECAPTCHA_PRIVATE_KEY='6LdT7m8dAAAAADX_ZKrvzsiDPOAwUxgMop9Hij71'
-RECAPTCHA_PUBLIC_KEY='6LdT7m8dAAAAAErm3MxtbGJWBzUzwRvSNpmzvd9c'
 NOCAPTCHA = True
-RECAPTCHA_DOMAIN = 'localhost'
+RECAPTCHA_PUBLIC_KEY = '6LdHaPsSAAAAAPinOxMD64UtSQtD1J37vp9qjsZw'
+RECAPTCHA_PRIVATE_KEY = '6LdHaPsSAAAAAJRHOT4Edilnp-1xSOqttWNk5dar'

@@ -54,12 +54,11 @@
                             {{ form.password2|add_class:"form-control input-lg" }}
                             <div class="help-block">{{ form.password2.errors }}</div>
                         </div>
-                        <div class="input-group {% if form.captcha.errors %}has-error{% endif %} col-xs-12">
-                            {{ form.captcha.label_tag }}
+                         <div class="input-group {% if form.captcha.errors %}has-error{% endif %} col-xs-12">
                             {{ form.captcha }}
                             <div class="help-block">{{ form.captcha.errors }}</div>
-                            <script src='https://www.google.com/recaptcha/api.js'></script>
                         </div>
+
                         <button class="btn btn-block btn-custom-2">
                             <i class="fa fa-check"></i>
                             {% trans 'Створити аккаунт' %}
