@@ -26,7 +26,6 @@ def import_products(file):
             price=item['price'] or 0
         )
 
-
 def export_products_csv(response):
 
     writer = csv.writer(response)

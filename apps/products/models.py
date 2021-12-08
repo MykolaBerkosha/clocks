@@ -10,6 +10,8 @@ from availability.models import AvailabilityField
 
 class Product(models.Model):
 
+    availability = AvailabilityField()
+
     category = models.ForeignKey(
         'categories.Category',
         verbose_name=_('Category'),
@@ -28,8 +30,6 @@ class Product(models.Model):
         max_length=1000,
         db_index=True,
         blank=True)
-
-    availability = AvailabilityField()
 
     def __str__(self):
         return self.name

@@ -11,10 +11,6 @@ class Availability(models.Model):
 
     is_default = models.BooleanField(_('Is default'), default=False)
 
-    color = models.CharField(_('Color'), max_length=100, blank=True)
-
-    code = models.CharField(_('Code'), max_length=255, unique=True)
-
     objects = AvailabilityManager()
 
     def __str__(self):

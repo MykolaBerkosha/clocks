@@ -13,13 +13,13 @@ class AvailabilityAdmin(TranslationAdmin):
 
     search_fields = get_translation_fields('name')
 
-    list_display = ['name_tag', 'code', 'color']
+    list_display = ['name_tag']
 
     fieldsets = (
         (None, {
             'fields': (
                 tuple(get_translation_fields('name')),
-                ('is_default', 'code', 'color', ),
+                ('is_default'),
             )
         }),
     )
