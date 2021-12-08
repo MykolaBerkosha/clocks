@@ -63,7 +63,8 @@ INSTALLED_APPS = [
     'apps.orders',
     'apps.reviews',
     'apps.products',
-    'accounts'
+    'accounts',
+    'availability',
 
 ]
 

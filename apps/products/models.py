@@ -5,6 +5,8 @@ from django.utils.translation import ugettext_lazy as _
 
 from slugify import slugify_url
 
+from availability.models import AvailabilityField
+
 
 class Product(models.Model):
 
@@ -26,6 +28,8 @@ class Product(models.Model):
         max_length=1000,
         db_index=True,
         blank=True)
+
+    availability = AvailabilityField()
 
     def __str__(self):
         return self.name
