@@ -52,6 +52,9 @@
                 <li>
                     Price: {{ product.price }}
                 </li>
+                <li>
+                    Availability: {{ product.availability }}
+                </li>
             </ul>
 
             <form action="{% url 'orders:quick-checkout' %}"

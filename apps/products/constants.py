@@ -8,7 +8,7 @@ AVAILABILITY_NOT_AVAILABLE = 2
 
 AVAILABILITY_CHOICES = (
     (AVAILABILITY_IN_STOCK, _('In stock')),
-    (AVAILABILITY_NOT_AVAILABLE, _('Not available')),
+    (AVAILABILITY_NOT_AVAILABLE, _('Not availablehgvytiygyuguygu')),
     (AVAILABILITY_ORDER, _('Should be ordered')),
 )
 

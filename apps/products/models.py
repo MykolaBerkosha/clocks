@@ -3,8 +3,11 @@ from django.urls import reverse_lazy
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
-from availability.models import AvailabilityField
 from slugify import slugify_url
+from apps.products.constants import (
+    AVAILABILITY_COLORS,
+    AVAILABILITY_CHOICES,
+    AVAILABILITY_IN_STOCK)
 
 
 class Product(models.Model):
@@ -22,7 +25,10 @@ class Product(models.Model):
 
     logo = models.ImageField(_('Logo'), upload_to='product_logos')
 
-    availability = AvailabilityField()
+    availability = models.PositiveIntegerField(
+        _('Availability'),
+        choices=AVAILABILITY_CHOICES,
+        default=AVAILABILITY_IN_STOCK)
 
     tags = models.TextField(
         _('Tags'),
@@ -32,6 +38,10 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+
+    @property
+    def availability_color(self):
+        return AVAILABILITY_COLORS[self.availability]
 
     @property
     def slug(self):
