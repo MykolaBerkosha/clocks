@@ -39,6 +39,7 @@ MANAGERS = (
 
 INSTALLED_APPS = [
     'core.suit.SuitConfig',
+    'modeltranslation',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
