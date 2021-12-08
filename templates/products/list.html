@@ -17,6 +17,7 @@
                 {% else %}
                     No logo
                 {% endif %}
+                {{ object.get_availability_display }}
             </li>
         {% endfor %}
     </ul>

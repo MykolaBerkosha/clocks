@@ -3,6 +3,7 @@ from django.urls import reverse_lazy
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
+from availability.models import AvailabilityField
 from slugify import slugify_url
 
 
@@ -20,6 +21,8 @@ class Product(models.Model):
     price = models.FloatField(_('Price'))
 
     logo = models.ImageField(_('Logo'), upload_to='product_logos')
+
+    availability = AvailabilityField()
 
     tags = models.TextField(
         _('Tags'),

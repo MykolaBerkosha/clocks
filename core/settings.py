@@ -39,6 +39,7 @@ MANAGERS = (
 
 INSTALLED_APPS = [
     'core.suit.SuitConfig',
+    'modeltranslation',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -63,7 +64,8 @@ INSTALLED_APPS = [
     'apps.orders',
     'apps.reviews',
     'apps.products',
-    'accounts'
+    'accounts',
+    'availability'
 
 ]
 
