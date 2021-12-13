@@ -1,0 +1,21 @@
+table#attributes {
+    width: 100%;
+}
+
+table#attributes tr {
+    border-bottom: 1px solid #d0cbcb;
+}
+
+table#attributes tr:last-child {
+    border-bottom: transparent;
+}
+
+table#attributes tr td:first-child {
+    font-weight: bold;
+    width: 50%;
+}
+
+table#attributes tr td:last-child {
+    padding: 5px 0;
+    width: 50%;
+}

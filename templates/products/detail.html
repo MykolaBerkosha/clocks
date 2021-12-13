@@ -3,6 +3,12 @@
 
 {% load i18n thumbnail %}
 
+{% load static %}
+
+<head>
+    <link rel="stylesheet" href="{{ STATIC_URL }} styles.css">
+</head>
+
 
 {% block title %}
     {{ product.name }}
@@ -45,17 +51,20 @@
                     Edit
                 </a>
             {% endif %}
-            <ul>
-                <li>
-                    Category: {{ product.category.name }}
-                </li>
-                <li>
-                    Price: {{ product.price }}
-                </li>
-                <li>
-                    Availability: {{ product.availability }}
-                </li>
-            </ul>
+            <table id="attributes">
+                <tr>
+                    <td>Category: </td>
+                    <td>{{ product.category.name }}</td>
+                </tr>
+                <tr>
+                    <td>Price:</td>
+                    <td>{{ product.price }}</td>
+                </tr>
+                <tr>
+                    <td>Availability:</td>
+                    <td>{{ product.availability }}</td>
+                </tr>
+            </table>
 
             <form action="{% url 'orders:quick-checkout' %}"
                   method="post"
