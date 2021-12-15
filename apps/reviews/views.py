@@ -1,5 +1,6 @@
 
-from django.shortcuts import render, redirect
+from django.shortcuts import render
+from django.http.response import JsonResponse
 from django.contrib import messages
 from django.utils.translation import ugettext_lazy as _
 from django.views.generic import ListView
@@ -12,14 +13,22 @@ def add_review(request):
 
     form = ReviewForm(request.POST or None)
 
-    if request.method == 'POST' and form.is_valid():
-        form.save()
-        messages.success(request, _('Review added'))
-        return redirect('home')
+    status_code = 200
+
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            messages.success(request, _('Review added'))
+            return JsonResponse({
+                'message': _('Review added')
+            })
+        else:
+            status_code = 403
 
     return render(request, 'reviews/add.html', {
-        'form': form
-    })
+        'form': form,
+        'status_code': status_code
+    }, status=status_code)
 
 
 class ReviewListView(ListView):

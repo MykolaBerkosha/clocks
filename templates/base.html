@@ -14,6 +14,12 @@
             Clocks
         {% endblock %}
     </title>
+
+    <script>
+        lang_code = '{{ LANGUAGE_CODE }}';
+        csrf='{{ csrf_token }}';
+    </script>
+
     {% stylesheet 'generic' %}
 </head>
 <body>
