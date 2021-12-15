@@ -1,11 +1,8 @@
-Pillow==8.2.0
-django==3.0.13
-psycopg2-binary==2.8.6
+
+djrunner==0.0.3
+djassets==0.0.2
+
 awesome-slugify==1.6.5
-django-pipeline==2.0.6
-django-bower==5.2.0
-cssmin==0.2.0
-jsmin==2.2.2
 django-widget-tweaks==1.4.8
 django-mp-pagination==0.2
 sorl-thumbnail==12.7.0
@@ -19,5 +16,6 @@ django-recaptcha==2.0.6
 
 
 bs4
+xlwt
 
 -e git://github.com/darklow/django-suit.git@v2#egg=django-suit

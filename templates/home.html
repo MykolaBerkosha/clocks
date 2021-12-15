@@ -11,9 +11,15 @@
         <a href="/111/">honda</a>
     </div>
 
-    <a href="{% url 'reviews:add' %}">
+    <button type="button" data-role="add-review" data-url="{% url 'reviews:add' %}">
         {% trans "Add review" %}
-    </a>
+    </button>
+
+    {% if request.user.is_staff %}
+        <button type="button" data-role="add-product" data-url="{% url 'admin:products_product_add' %}?_popup=1">
+            {% trans "Add product" %}
+        </button>
+    {% endif %}
 
     {% render_slider %}
 
@@ -26,4 +32,29 @@
             </li>
         {% endfor %}
     </ul>
+{% endblock %}
+
+
+{% block js %}
+    {{ block.super }}
+    <script>
+        (function ($) {
+            new Modal({
+                $target: $('[data-role=add-review]')
+            });
+
+            $('[data-role=add-product]').on('click', function () {
+                window.open(
+                    $(this).data('url'),
+                    "",
+                    "left=100,top=100,width=1000,height=600"
+                );
+            });
+
+            window.dismissAddRelatedObjectPopup = function (popup) {
+                popup.close();
+                window.location.reload();
+            };
+        })(jQuery);
+    </script>
 {% endblock %}

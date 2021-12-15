@@ -6,6 +6,8 @@ from django.conf.urls.static import static
 
 from apps.site.views import home
 
+from djrunner import setup_urlpatterns
+
 
 urlpatterns = [
 
@@ -19,10 +21,6 @@ urlpatterns = [
 
     path('reviews/', include('apps.reviews.urls')),
 
-    path('', home, name='home'),
+    path('', home, name='home')
 
-    path('account/', include('accounts.urls'))
-
-] + static(
-    settings.MEDIA_URL, document_root=settings.MEDIA_ROOT
-)
+setup_urlpatterns(urlpatterns, home_view=home)

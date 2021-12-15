@@ -14,8 +14,7 @@ import os
 
 from pathlib import Path
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+from djrunner import setup_settings
 
 
 # Quick-start development settings - unsuitable for production
@@ -23,12 +22,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-i#3&y%*+74bf*+6!)-#t=6zuhpvxasp8le6*i37%(gjn518gm4'
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = ['*']
-
+BASE_DIR = Path(__file__).resolve().parent.parent
+DB_NAME = 'clocks'
 
 MANAGERS = (
     ('Dev', 'kolya@gmail.com'),
@@ -39,7 +34,6 @@ MANAGERS = (
 
 INSTALLED_APPS = [
     'core.suit.SuitConfig',
-    'modeltranslation',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -47,8 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'pipeline',
-    'djangobower',
+    'djassets',
     'widget_tweaks',
     'pagination',
     'sorl.thumbnail',
@@ -57,172 +50,30 @@ INSTALLED_APPS = [
     'slider',
     'notify',
     'ckeditor',
-    'captcha',
 
     'apps.cart',
     'apps.categories',
     'apps.orders',
     'apps.reviews',
-    'apps.products',
-    'accounts',
-    'availability',
-
+    'apps.products'
 ]
 
-STATICFILES_STORAGE = 'pipeline.storage.PipelineStorage'
-
-STATICFILES_FINDERS = (
-    'django.contrib.staticfiles.finders.FileSystemFinder',
-    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    'pipeline.finders.PipelineFinder',
-    'djangobower.finders.BowerFinder',
-)
-
-BOWER_COMPONENTS_ROOT = os.path.join(BASE_DIR, 'static')
-
-BOWER_INSTALLED_APPS = (
-    'jquery#3.5.1',
-    'bootstrap#5.0.1',
-    'font-awesome#5.15.3',
-)
-
-
-PIPELINE = {
-    'JS_COMPRESSOR': 'pipeline.compressors.jsmin.JSMinCompressor',
-    'CSS_COMPRESSOR': 'pipeline.compressors.cssmin.CSSMinCompressor',
-    'STYLESHEETS': {
-        'generic': {
-            'source_filenames': (
-                'bower_components/bootstrap/dist/css/bootstrap.css',
-                'bower_components/font-awesome/css/all.css',
-            ),
-            'output_filename': 'cache/generic.css',
-        }
-    },
-    'JAVASCRIPT': {
-        'generic': {
-            'source_filenames': (
-              'bower_components/jquery/dist/jquery.js',
-              'bower_components/bootstrap/dist/js/bootstrap.js',
-              'js/custom.js',
-            ),
-            'output_filename': 'cache/generic.js',
-        }
-    }
-}
-
-MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+STATIC_APPS = [
+    'jquery',
+    'fa'
 ]
 
-ROOT_URLCONF = 'core.urls'
-
-TEMPLATES = [
-    {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [
-            os.path.join(BASE_DIR, 'templates')
-        ],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.template.context_processors.static',
-                'django.template.context_processors.media',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
-            ],
-        },
-    },
+BOWER_COMPONENTS = [
+    'bootstrap#5.0.1'
 ]
 
-WSGI_APPLICATION = 'core.wsgi.application'
-
-
-EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
-EMAIL_FILE_PATH = os.path.join(BASE_DIR, 'tmp')
-
-# Database
-# https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'clocks',
-        'USER': 'dev',
-        'PASSWORD': '1'
-    }
-}
-
-
-# Password validation
-# https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
-
-AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
+STYLESHEETS = [
+    'bower_components/bootstrap/dist/css/bootstrap.css',
 ]
 
-
-# Internationalization
-# https://docs.djangoproject.com/en/3.2/topics/i18n/
-
-LANGUAGES = (
-    ('uk', 'UA'),
-)
-
-LANGUAGE_CODE = 'uk'
-
-TIME_ZONE = 'UTC'
-
-USE_I18N = True
-
-USE_L10N = True
-
-USE_TZ = True
-
-
-LOCALE_PATHS = [
-    os.path.join(BASE_DIR, 'locale')
+JAVASCRIPT = [
+    'bower_components/bootstrap/dist/js/bootstrap.js',
+    'js/custom.js'
 ]
 
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.2/howto/static-files/
-
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static-collect')
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
-
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL = '/media/'
-
-# Default primary key field type
-# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
-
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-TEMPLATE_DIRS = (os.path.join(BASE_DIR,  'templates'),)
-
-NOCAPTCHA = True
-RECAPTCHA_PUBLIC_KEY = '6LdHaPsSAAAAAPinOxMD64UtSQtD1J37vp9qjsZw'
-RECAPTCHA_PRIVATE_KEY = '6LdHaPsSAAAAAJRHOT4Edilnp-1xSOqttWNk5dar'
+setup_settings(globals())
