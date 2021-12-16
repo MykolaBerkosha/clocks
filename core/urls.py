@@ -1,8 +1,7 @@
 
-from django.conf import settings
 from django.contrib import admin
 from django.urls import path, include
-from django.conf.urls.static import static
+from django.conf.urls import include
 
 from apps.site.views import home
 
@@ -21,6 +20,9 @@ urlpatterns = [
 
     path('reviews/', include('apps.reviews.urls')),
 
-    path('', home, name='home')
+    path('accounts/', include('accounts.urls')),
+
+    path('', home, name='home'),
+]
 
 setup_urlpatterns(urlpatterns, home_view=home)
