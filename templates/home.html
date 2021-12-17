@@ -6,13 +6,12 @@
 
 {% block content %}
 
-    <div class="manufacturers">
-        <a href="/">harley</a>
-        <a href="/111/">honda</a>
-    </div>
-
     <button type="button" data-role="add-review" data-url="{% url 'reviews:add' %}">
         {% trans "Add review" %}
+    </button>
+
+    <button type="button" data-role="add-callback" data-url="{% url 'callback:add' %}">
+        {% trans "Add callback" %}
     </button>
 
     {% if request.user.is_staff %}
@@ -41,6 +40,10 @@
         (function ($) {
             new Modal({
                 $target: $('[data-role=add-review]')
+            });
+
+            new Modal({
+                $target: $('[data-role=add-callback]')
             });
 
             $('[data-role=add-product]').on('click', function () {
