@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'slider',
     'notify',
     'ckeditor',
+    'captcha',
 
     'apps.cart',
     'apps.categories',

@@ -34,9 +34,6 @@ def checkout(request):
             html_message=render_to_string('orders/mail.html', {'order': order})
         )
 
-        print('-------------------------------------')
-        print(mail_managers)
-
         messages.success(request, 'Order added')
 
         return redirect('home')
