@@ -20,6 +20,10 @@ class CheckoutForm(forms.ModelForm):
             'first_name',
             'last_name',
             'mobile',
+            'delivery_method',
+            'delivery_district_address',
+            'delivery_region_address',
+            'post_office',
         )
 
 

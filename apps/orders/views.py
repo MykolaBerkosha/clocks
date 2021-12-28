@@ -34,6 +34,9 @@ def checkout(request):
             html_message=render_to_string('orders/mail.html', {'order': order})
         )
 
+        print('-------------------------------------')
+        print(mail_managers)
+
         messages.success(request, 'Order added')
 
         return redirect('home')
@@ -62,7 +65,7 @@ def quick_checkout(request):
             subject='New order #{}'.format(order.id),
             message='',
             fail_silently=not settings.DEBUG,
-            html_message=render_to_string('orders/mail.html', {'order': order})
+            html_message=render_to_string('orders/mail.html', {'order': order}),
         )
 
         return JsonResponse({
