@@ -78,7 +78,8 @@ STYLESHEETS = [
 
 JAVASCRIPT = [
     'bower_components/bootstrap/dist/js/bootstrap.js',
-    'js/custom.js'
+    'js/custom.js',
+    'js/select-chained-box.js'
 ]
 
 EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'

@@ -20,3 +20,30 @@
     </form>
 
 {% endblock %}
+
+{% block js %}
+    {{ block.super }}
+    <script>
+        (function ($) {
+            new SelectChainedBox({
+                $select: $('#{{ form.delivery_method.auto_id }}'),
+                $target: $('#{{ form.post_office.auto_id }}'),
+                value: 'SELF-PICKUP',
+                isReversed: true
+            });
+            new SelectChainedBox({
+                $select: $('#{{ form.delivery_method.auto_id }}'),
+                $target: $('#{{ form.delivery_district_address.auto_id }}'),
+                value: 'SELF-PICKUP',
+                isReversed: true
+            });
+            new SelectChainedBox({
+                $select: $('#{{ form.delivery_method.auto_id }}'),
+                $target: $('#{{ form.delivery_region_address.auto_id }}'),
+                value: 'SELF-PICKUP',
+                isReversed: true
+            });
+        })(jQuery);
+    </script>
+{% endblock %}
+
