@@ -5,12 +5,19 @@ from django.utils.translation import ugettext_lazy as _
 
 from slugify import slugify_url
 
-from availability.models import AvailabilityField
+from managers import ProductManager
 
 
 class Product(models.Model):
 
-    availability = AvailabilityField()
+    STATUS_VISIBLE =(
+        ('visible', 'Visible'),
+        ('invisible', 'Invisible')
+    )
+
+    is_visible = models.CharField(choices=STATUS_VISIBLE, max_length=255, default=True)
+
+    objects = ProductManager()
 
     category = models.ForeignKey(
         'categories.Category',

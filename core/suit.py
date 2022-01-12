@@ -24,9 +24,6 @@ class SuitConfig(DjangoSuitConfig):
                     label='Export products in xls',
                     url='products:xls_export'
                 ),
-                ChildItem(
-                    model='availability.availability'
-                )
             ]
         ),
     )

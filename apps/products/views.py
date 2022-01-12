@@ -53,7 +53,7 @@ def get_products(request, category_slug, category_id):
 
     category = get_object_or_404(Category, id=category_id)
 
-    products = category.products.all().order_by('-id')
+    products = category.products.visible().order_by('-id')
 
     return render(request, 'products/list.html', {
         'category': category,
@@ -63,7 +63,8 @@ def get_products(request, category_slug, category_id):
 
 def get_product(request, category_slug, category_id, slug, id):
 
-    product = get_object_or_404(Product, category_id=category_id, id=id)
+    # product = get_object_or_404(Product, category_id=category_id, id=id)
+    product = Product.objects.visible().get(category_id=category_id, id = id )
 
     cart = Cart(request.session)
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-24 11:13+0000\n"
+"POT-Creation-Date: 2022-01-12 13:35+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,11 +21,20 @@ msgstr ""
 "100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || "
 "(n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
 
-#: apps/categories/models.py:11
+#: apps/cart/views.py:31
+msgid "Product added to cart"
+msgstr ""
+
+#: apps/cart/views.py:57
+msgid "Cart was cleared"
+msgstr ""
+
+#: apps/categories/models.py:11 apps/products/models.py:29
+#: apps/reviews/models.py:8 availability/admin.py:43 availability/models.py:10
 msgid "Name"
 msgstr "Назва"
 
-#: apps/categories/models.py:24
+#: apps/categories/models.py:24 apps/products/models.py:24
 msgid "Category"
 msgstr "Категорія"
 
@@ -33,15 +42,478 @@ msgstr "Категорія"
 msgid "Categories"
 msgstr "Категорії"
 
-#: templates/base.html:14
+#: apps/orders/models.py:9
+msgid "First name"
+msgstr ""
+
+#: apps/orders/models.py:12
+msgid "Last name"
+msgstr ""
+
+#: apps/orders/models.py:14
+msgid "Mobile number"
+msgstr ""
+
+#: apps/orders/models.py:16
+msgid "Created"
+msgstr ""
+
+#: apps/orders/models.py:27 apps/orders/models.py:29
+msgid "Delivery district address"
+msgstr ""
+
+#: apps/orders/models.py:31
+msgid "Post office"
+msgstr ""
+
+#: apps/orders/models.py:37
+msgid "Order"
+msgstr ""
+
+#: apps/orders/models.py:38
+msgid "Orders"
+msgstr ""
+
+#: apps/products/models.py:31
+msgid "Price"
+msgstr ""
+
+#: apps/products/models.py:33
+msgid "Logo"
+msgstr ""
+
+#: apps/products/models.py:36
+msgid "Tags"
+msgstr ""
+
+#: apps/products/models.py:54
+msgid "Product"
+msgstr ""
+
+#: apps/products/models.py:55
+msgid "Products"
+msgstr ""
+
+#: apps/reviews/models.py:10
+msgid "Text"
+msgstr ""
+
+#: apps/reviews/models.py:13
+msgid "Rating"
+msgstr ""
+
+#: apps/reviews/views.py:21 apps/reviews/views.py:23
+msgid "Review added"
+msgstr ""
+
+#: availability/__init__.py:9 availability/fields.py:12
+#: availability/models.py:20 availability/models.py:21
+#: availability/models.py:29
+msgid "Availability"
+msgstr ""
+
+#: availability/admin.py:39
+msgid "Default"
+msgstr ""
+
+#: availability/models.py:12
+msgid "Is default"
+msgstr ""
+
+#: src/django-suit/demo/demo/templates/admin/demo/showcase/change_form.html:9
+msgid "History"
+msgstr ""
+
+#: src/django-suit/demo/demo/templates/admin/demo/showcase/change_form.html:13
+msgid "View on site"
+msgstr ""
+
+#: src/django-suit/demo/demo/templates/admin/demo/showcase/submit_line.html:17
+msgid "Delete"
+msgstr ""
+
+#: src/django-suit/demo/demo/templates/admin/demo/showcase/submit_line.html:26
+#: src/django-suit/demo/demo/templates/admin/demo/showcase/submit_line.html:31
+msgid "Save as new"
+msgstr ""
+
+#: src/django-suit/demo/demo/templates/admin/demo/showcase/submit_line.html:29
+msgid "Save and continue editing"
+msgstr ""
+
+#: src/django-suit/suit/admin_filters.py:6
+msgid "Is present"
+msgstr ""
+
+#: src/django-suit/suit/admin_filters.py:7
+msgid "Is Null"
+msgstr ""
+
+#: src/django-suit/suit/admin_filters.py:21
+msgid "All"
+msgstr ""
+
+#: src/django-suit/suit/menu.py:107
+#: src/django-suit/suit/templates/registration/password_change_form.html:7
+#: templates/base.html:47 templates/products/detail.html:24
 msgid "Home"
 msgstr "Головна"
 
-#: templates/base.html:14
-msgid "Cart"
-msgstr "пль"
+#: src/django-suit/suit/templates/admin/auth/user/add_form.html:8
+msgid ""
+"First, enter a username and password. Then, you'll be able to edit more user "
+"options."
+msgstr ""
 
+#: src/django-suit/suit/templates/admin/auth/user/add_form.html:10
+msgid "Enter a username and password."
+msgstr ""
 
+#: src/django-suit/suit/templates/admin/base.html:13
+msgid "Django site admin"
+msgstr ""
 
+#: src/django-suit/suit/templates/admin/base.html:18
+#: src/django-suit/suit/templates/admin/base.html:104
+msgid "Django administration"
+msgstr ""
 
+#: src/django-suit/suit/templates/admin/base.html:19
+msgid "Admin"
+msgstr ""
 
+#: src/django-suit/suit/templates/admin/base.html:50
+msgid "View site"
+msgstr ""
+
+#: src/django-suit/suit/templates/admin/base.html:57
+msgid "Documentation"
+msgstr ""
+
+#: src/django-suit/suit/templates/admin/base.html:62
+msgid "Change password"
+msgstr ""
+
+#: src/django-suit/suit/templates/admin/base.html:65
+msgid "Log out"
+msgstr ""
+
+#: src/django-suit/suit/templates/admin/change_list.html:10
+msgid "Filter"
+msgstr ""
+
+#: src/django-suit/suit/templates/admin/change_list_results.html:17
+msgid "Remove from sorting"
+msgstr ""
+
+#: src/django-suit/suit/templates/admin/change_list_results.html:18
+#, python-format
+msgid "Sorting priority: %(priority_number)s"
+msgstr ""
+
+#: src/django-suit/suit/templates/admin/change_list_results.html:19
+msgid "Toggle sorting"
+msgstr ""
+
+#: src/django-suit/suit/templates/admin/login.html:9
+#: src/django-suit/suit/templates/registration/password_change_form.html:21
+msgid "Please correct the error below."
+msgstr ""
+
+#: src/django-suit/suit/templates/admin/login.html:10
+#: src/django-suit/suit/templates/registration/password_change_form.html:21
+msgid "Please correct the errors below."
+msgstr ""
+
+#: src/django-suit/suit/templates/admin/login.html:26
+#, python-format
+msgid ""
+"You are authenticated as %(username)s, but are not authorized to access this "
+"page. Would you like to login to a different account?"
+msgstr ""
+
+#: src/django-suit/suit/templates/admin/login.html:47
+msgid "Forgotten your password or username?"
+msgstr ""
+
+#: src/django-suit/suit/templates/admin/login.html:51
+msgid "Log in"
+msgstr ""
+
+#: src/django-suit/suit/templates/registration/password_change_form.html:8
+msgid "Password change"
+msgstr ""
+
+#: src/django-suit/suit/templates/registration/password_change_form.html:26
+msgid ""
+"Please enter your old password, for security's sake, and then enter your new "
+"password twice so we can verify you typed it in correctly."
+msgstr ""
+
+#: src/django-suit/suit/templates/registration/password_change_form.html:54
+msgid "Change my password"
+msgstr ""
+
+#: src/django-suit/suit/templates/suit/search_form.html:15
+msgid "Search"
+msgstr ""
+
+#: src/django-suit/suit/templates/suit/search_form.html:17
+#, python-format
+msgid ""
+"%(counter)s result\n"
+"                        "
+msgid_plural "%(counter)s results"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+#: src/django-suit/suit/templates/suit/search_form.html:20
+#, python-format
+msgid ""
+"%(full_result_count)s total\n"
+"                        "
+msgstr ""
+
+#: src/django-suit/suit/templates/suit/search_form.html:21
+msgid "Show all"
+msgstr ""
+
+#: templates/accounts/base-profile.html:14
+msgid "Мій профіль"
+msgstr ""
+
+#: templates/accounts/base-profile.html:20
+msgid "Мої замовлення"
+msgstr ""
+
+#: templates/accounts/base-profile.html:26
+msgid "Мій список побажань"
+msgstr ""
+
+#: templates/accounts/login.html:12
+msgid "Вхід на сайт"
+msgstr ""
+
+#: templates/accounts/login.html:45
+msgid "Забули Ваш пароль"
+msgstr ""
+
+#: templates/accounts/login.html:50
+msgid "Увійти"
+msgstr ""
+
+#: templates/accounts/password-change.html:14
+#: templates/accounts/password-reset-confirm.html:15
+msgid "Зміна паролю"
+msgstr ""
+
+#: templates/accounts/password-change.html:43
+#: templates/accounts/profile.html:50
+msgid "Змінити пароль"
+msgstr ""
+
+#: templates/accounts/password-change.html:47
+#: templates/accounts/profile-change.html:53
+#: templates/accounts/profile-remove.html:36
+msgid "Відмінити"
+msgstr ""
+
+#: templates/accounts/password-reset-confirm.html:16
+msgid ""
+"Введіть ваш новий пароль два рази щоб ми могли перевірити, що ви ввели його "
+"правильно."
+msgstr ""
+
+#: templates/accounts/password-reset-confirm.html:39
+msgid "Змінити мій пароль"
+msgstr ""
+
+#: templates/accounts/password-reset-confirm.html:47
+msgid "Посилання для відновлення неправильне або можливо вже використане."
+msgstr ""
+
+#: templates/accounts/password-reset-email.html:8
+msgid "Відновлення паролю на"
+msgstr ""
+
+#: templates/accounts/password-reset-email.html:13
+msgid "Щоб відновити пароль на сайті"
+msgstr ""
+
+#: templates/accounts/password-reset-email.html:13
+msgid "натисніть тут"
+msgstr ""
+
+#: templates/accounts/password-reset-email.html:20
+#: templates/accounts/signup-email.html:19
+msgid "З повагою"
+msgstr ""
+
+#: templates/accounts/password-reset-email.html:20
+#: templates/accounts/signup-email.html:19
+msgid "адміністрація сайту"
+msgstr ""
+
+#: templates/accounts/password-reset-subject.txt:4
+#: templates/accounts/password-reset.html:12
+msgid "Відновлення паролю"
+msgstr ""
+
+#: templates/accounts/password-reset.html:13
+msgid ""
+"На Вашу електронну адресу буде надіслано посилання для відновлення паролю"
+msgstr ""
+
+#: templates/accounts/password-reset.html:31
+msgid "Скинути пароль"
+msgstr ""
+
+#: templates/accounts/profile-change.html:14
+msgid "Зміна профілю"
+msgstr ""
+
+#: templates/accounts/profile-change.html:49
+msgid "Зберегти"
+msgstr ""
+
+#: templates/accounts/profile-remove.html:14
+msgid "Видалення профілю"
+msgstr ""
+
+#: templates/accounts/profile-remove.html:15
+msgid "Введіть ваш пароль щоб видалити профіль"
+msgstr ""
+
+#: templates/accounts/profile-remove.html:32 templates/accounts/profile.html:55
+msgid "Видалити профіль"
+msgstr ""
+
+#: templates/accounts/profile.html:17
+msgid "Імʼя"
+msgstr ""
+
+#: templates/accounts/profile.html:21
+msgid "Прізвище"
+msgstr ""
+
+#: templates/accounts/profile.html:25
+msgid "Email"
+msgstr ""
+
+#: templates/accounts/profile.html:29
+msgid "Дата реєстрації"
+msgstr ""
+
+#: templates/accounts/profile.html:33
+msgid "Адреса"
+msgstr ""
+
+#: templates/accounts/profile.html:37
+msgid "Телефон"
+msgstr ""
+
+#: templates/accounts/profile.html:45
+msgid "Редагувати профіль"
+msgstr ""
+
+#: templates/accounts/signup-email.html:8
+msgid "Активація аккаунту в"
+msgstr ""
+
+#: templates/accounts/signup-email.html:14
+msgid "Ви створили обліковий запис на"
+msgstr ""
+
+#: templates/accounts/signup-email.html:15
+msgid "Ваш логін"
+msgstr ""
+
+#: templates/accounts/signup-email.html:16
+msgid "Щоб активувати ваш профіль натисніть тут"
+msgstr ""
+
+#: templates/accounts/signup-subject.txt:1
+msgid "Активація облікового запису на"
+msgstr ""
+
+#: templates/accounts/signup.html:12
+msgid "Реєстрація на сайті"
+msgstr ""
+
+#: templates/accounts/signup.html:64
+msgid "Створити аккаунт"
+msgstr ""
+
+#: templates/accounts/signup.html:70
+msgid "Щоб створити новий аккаунт Вам потрібно"
+msgstr ""
+
+#: templates/accounts/signup.html:71
+msgid "вийти"
+msgstr ""
+
+#: templates/base.html:58
+msgid "Reviews"
+msgstr ""
+
+#: templates/base.html:95
+msgid "Logout"
+msgstr ""
+
+#: templates/base.html:99
+msgid "Login"
+msgstr ""
+
+#: templates/base.html:103
+msgid "Реєстрація"
+msgstr ""
+
+#: templates/callback/add_callback.html:8 templates/home.html:14
+msgid "Add callback"
+msgstr ""
+
+#: templates/callback/add_callback.html:28 templates/reviews/add.html:28
+msgid "Save"
+msgstr ""
+
+#: templates/callback/add_callback.html:32 templates/reviews/add.html:32
+msgid "Cancel"
+msgstr ""
+
+#: templates/cart/index.html:50
+msgid "Checkout"
+msgstr ""
+
+#: templates/cart/index.html:58
+msgid "Clean"
+msgstr ""
+
+#: templates/home.html:10 templates/reviews/add.html:8
+#: templates/reviews/review_list.html:10
+msgid "Add review"
+msgstr ""
+
+#: templates/home.html:19
+msgid "Add product"
+msgstr ""
+
+#: templates/products/detail.html:77
+msgid "Buy"
+msgstr ""
+
+#: templates/products/list.html:19
+msgid "Edit"
+msgstr ""
+
+#: templates/products/search.html:24
+msgid "Search by"
+msgstr ""
+
+#: templates/products/search.html:39
+msgid "No products"
+msgstr ""
+
+#~ msgid "Cart"
+#~ msgstr "пль"
