@@ -13,7 +13,7 @@ django-mp-notify==0.1
 django-ckeditor==6.1.0
 django-mp-accounts==3.2
 django-recaptcha==2.0.6
-django-modeltranslation=0.17.3
+django-modeltranslation==0.17.3
 
 
 
