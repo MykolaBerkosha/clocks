@@ -23,7 +23,8 @@ class Product(models.Model):
 
     price = models.FloatField(_('Price'))
 
-    logo = models.ImageField(_('Logo'), upload_to='product_logos')
+    logo = models.ImageField(
+        _('Logo'), upload_to='product_logos', blank=True, null=True)
 
     tags = models.TextField(
         _('Tags'),
@@ -36,7 +37,7 @@ class Product(models.Model):
 
     @property
     def slug(self):
-        return slugify_url(self.name)
+        return slugify_url(self.name) or 'product'
 
     def get_absolute_url(self):
         return reverse_lazy('products:detail', args=[
