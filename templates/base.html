@@ -52,11 +52,34 @@
                             Cart ({{ cart.count }} / {{ cart.total }} uah)
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link"
-                           href="{% url 'reviews:list' %}">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             {% trans 'Reviews' %}
                         </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li ><a class="nav-link" data-role="add-review" data-url="{% url 'reviews:add' %}">
+                                    {% trans "Add review" %}
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'reviews:list' %}">
+                                {% trans 'Reviews' %}
+                            </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-link">
+                        <a data-role="add-callback" data-url="{% url 'callback:add' %}">
+                            {% trans "Add callback" %}
+                        </a>
+                    </li>
+                  <li class="nav-link">
+
+                      {% if request.user.is_staff %}
+                        <a data-role="add-product" data-url="{% url 'admin:products_product_add' %}?_popup=1">
+                            {% trans "Add product" %}
+                        </a>
+                      {% endif %}
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">

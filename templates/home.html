@@ -6,20 +6,6 @@
 
 {% block content %}
 
-    <button type="button" data-role="add-review" data-url="{% url 'reviews:add' %}">
-        {% trans "Add review" %}
-    </button>
-
-    <button type="button" data-role="add-callback" data-url="{% url 'callback:add' %}">
-        {% trans "Add callback" %}
-    </button>
-
-    {% if request.user.is_staff %}
-        <button type="button" data-role="add-product" data-url="{% url 'admin:products_product_add' %}?_popup=1">
-            {% trans "Add product" %}
-        </button>
-    {% endif %}
-
     {% render_slider %}
 
     <ul>

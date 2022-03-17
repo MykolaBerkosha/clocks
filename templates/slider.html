@@ -1,9 +1,9 @@
 
-<div id="slider" class="carousel slide" data-bs-ride="carousel">
+<div id="slider" class="carousel slide" style="margin: 50px;" data-bs-ride="carousel">
     <div class="carousel-inner">
         {% for photo in slider_photos %}
             <div class="carousel-item {% if forloop.first %}active{% endif %}">
-                <img src="{{ photo.file.url }}" class="d-block w-100" alt="{{ photo.title }}">
+                <img src="{{ photo.file.url }}" class="d-block w-100" style="height: 200px" alt="{{ photo.title }}">
             </div>
         {% endfor %}
     </div>
