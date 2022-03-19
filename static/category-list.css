@@ -1,0 +1,30 @@
+.category-card {
+    width: 350px;
+    height: 430px;
+}
+
+.category-thumb a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    padding: 20px;
+}
+
+.category-thumb img {
+    max-width: 335px;
+    max-height: 335px;
+}
+
+.category-border {
+    overflow: hidden;
+    border-top: 1px solid #eee;
+    padding-top: 17px;
+    text-align: center;
+    font-size: 25px;
+}
+
+.link{
+    color: #1f2021;
+    text-decoration: none;
+}

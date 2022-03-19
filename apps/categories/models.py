@@ -10,6 +10,9 @@ class Category(models.Model):
 
     name = models.CharField(_('Name'), max_length=255)
 
+    logo = models.ImageField(
+        _('Logo'), upload_to='category_logos', blank=True, null=True)
+
     def __str__(self):
         return self.name
 

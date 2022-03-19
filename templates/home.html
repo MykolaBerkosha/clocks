@@ -3,20 +3,40 @@
 
 {% load slider i18n %}
 
+{% load static %}
+
+<head>
+    <link rel="stylesheet" href="{{ STATIC_URL }} category-list.css">
+</head>
 
 {% block content %}
 
     {% render_slider %}
 
-    <ul>
-        {% for category in categories %}
-            <li>
-                <a href="{{ category.get_absolute_url }}">
-                    {{ category.name }}
-                </a>
-            </li>
-        {% endfor %}
-    </ul>
+    <div class="container">
+        <div class="row">
+            {% for category in categories %}
+                <div class="col-lg-4 col-sm-4 mb-3">
+                    <div class="category-card">
+                        <a  class="link" href="{{ category.get_absolute_url }}">
+                            <div class="category-thumb">
+                                {% if category.logo %}
+                                    <p style="text-align: center">
+                                        <img src="{{ category.logo.url }}">
+                                    </p>
+                                {% else %}
+                                    No logo
+                                {% endif %}
+                            </div>
+                            <div class="category-border">
+                               {{ category.name }}
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
 {% endblock %}
 
 
