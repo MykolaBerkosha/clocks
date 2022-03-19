@@ -9,6 +9,8 @@
     .product-card {
         box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.06);
         transition: all .3s;
+        width: 400px;
+        height: 550px;
     }
 
     .product-card:hover {
@@ -60,6 +62,10 @@
         font-weight: 600;
     }
 
+    .product-price-old {
+        color: #333333;
+    }
+
     .product-price small {
         color: #ccc;
         font-weight: 400;
@@ -71,19 +77,21 @@
         font-size: 20px;
         margin-left: 10px;
     }
+    .product-title{
+        height: 65px;
+    }
+    .link{
+        color: #1f2021;
+        text-decoration: none;
+    }
+    .category-title{
+        text-align: center;
+        margin-bottom: 25px;
+        margin-top: 19px;
+    }
 
-{#       ul.hr {#}
-{#    margin: 0; /* Обнуляем значение отступов */#}
-{#    padding: 4px; /* Значение полей */#}
-{#   }#}
-{#   ul.hr li {#}
-{#    display: inline; /* Отображать как строчный элемент */#}
-{#    margin-right: 5px; /* Отступ слева */#}
-{#    border: 1px solid #000; /* Рамка вокруг текста */#}
-{#    padding: 3px; /* Поля вокруг текста */#}
-{#   }#}
     </style>
-    <div style="text-align: center">
+    <div class="category-title">
         <h4>{{ category.name }}</h4>
     </div>
 
@@ -110,7 +118,7 @@
             {% for product in page_obj.object_list %}
                 <div class="col-lg-4 col-sm-4 mb-3">
                     <div class="product-card">
-                        <a href="{{ product.get_absolute_url }}">
+                        <a  class="link" href="{{ product.get_absolute_url }}">
                             <div class="product-thumb">
 
                                 {% if product.logo %}
@@ -122,17 +130,22 @@
                                 {% endif %}
                             </div>
                             <div class="product-details">
-                                <h4>{{ product.name }}</h4>
-                                {{ product.description|truncatechars:202 }}
+                                <div class="product-title">
+                                    <h4>{{ product.name }}</h4>
+                                </div>
+                                {{ product.description|truncatechars:200 }}
                             </div>
                             <div class="product-bottom-details d-flex justify-content-between">
+
                                 <div class="product-price">
                                     {% if product.new_price %}
                                         <small>{{ product.price }}$</small>{{ product.new_price }}
                                     {% endif %}
-                                    {% if product.new_price is None%}
-                                        {{ product.price }}
-                                    {% endif %}
+                                    <div class="product-price-old">
+                                        {% if product.new_price is None%}
+                                            {{ product.price }}
+                                        {% endif %}
+                                    </div>
                                 </div>
                                 <div class="product-links">
                                     <form action="{% url 'cart:add' %}" method="post">
