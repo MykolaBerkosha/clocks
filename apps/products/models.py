@@ -30,6 +30,8 @@ class Product(models.Model):
 
     price = models.FloatField(_('Price'))
 
+    new_price = models.FloatField(_('Price with sale'), blank=True, null=True)
+
     logo = models.ImageField(
         _('Logo'), upload_to='product_logos', blank=True, null=True)
 
@@ -38,6 +40,8 @@ class Product(models.Model):
         max_length=1000,
         db_index=True,
         blank=True)
+
+    description = models.TextField(max_length=1500, blank=True)
 
     def __str__(self):
         return self.name

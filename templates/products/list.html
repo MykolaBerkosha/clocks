@@ -5,28 +5,154 @@
 
 
 {% block content %}
+    <style>
+    .product-card {
+        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.06);
+        transition: all .3s;
+    }
 
-    <h4>{{ category.name }}</h4>
+    .product-card:hover {
+        box-shadow: 0 14px 30px -15px rgba(0, 0, 0, 0.75);
+    }
 
-    <ul>
-        {% for product in page_obj.object_list %}
-            <li>
-                <a href="{{ product.get_absolute_url }}">
-                    {{ product.name }} - ${{ product.price }}
-                </a>
-                {% if request.user.is_staff %}
-                    <button type="button" data-role="edit-product" data-url="{% url 'admin:products_product_change' product.id %}?_popup=1">
-                        {% trans "Edit" %}
-                    </button>
-                {% endif %}
-                {% if product.logo %}
-                    <img src="{{ product.logo.url }}" width="100">
-                {% else %}
-                    No logo
-                {% endif %}
-            </li>
-        {% endfor %}
-    </ul>
+    .product-thumb a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 200px;
+        padding: 20px;
+    }
+
+    .product-thumb img {
+        max-width: 250px;
+        max-height: 250px;
+    }
+
+    .product-details {
+        padding: 20px;
+    }
+
+    .product-details h4 a {
+        font-weight: 500;
+        display: block;
+        height: 60px;
+        overflow: hidden;
+        text-decoration: none;
+    }
+
+    .product-details p {
+        font-size: 15px;
+        margin-bottom: 20px;
+        color: #999;
+        height: 44px;
+        overflow: hidden;
+    }
+
+    .product-bottom-details {
+        overflow: hidden;
+        border-top: 1px solid #eee;
+        padding-top: 20px;
+    }
+
+    .product-price {
+        font-size: 18px;
+        color: #ee6e73;
+        font-weight: 600;
+    }
+
+    .product-price small {
+        color: #ccc;
+        font-weight: 400;
+        text-decoration: line-through;
+        margin-right: 5px;
+    }
+
+    .product-links a {
+        font-size: 20px;
+        margin-left: 10px;
+    }
+
+{#       ul.hr {#}
+{#    margin: 0; /* Обнуляем значение отступов */#}
+{#    padding: 4px; /* Значение полей */#}
+{#   }#}
+{#   ul.hr li {#}
+{#    display: inline; /* Отображать как строчный элемент */#}
+{#    margin-right: 5px; /* Отступ слева */#}
+{#    border: 1px solid #000; /* Рамка вокруг текста */#}
+{#    padding: 3px; /* Поля вокруг текста */#}
+{#   }#}
+    </style>
+    <div style="text-align: center">
+        <h4>{{ category.name }}</h4>
+    </div>
+
+{#    <ul>#}
+{#        {% for product in page_obj.object_list %}#}
+{#            <li>#}
+{##}
+{#                {% if request.user.is_staff %}#}
+{#                    <button type="button" data-role="edit-product" data-url="{% url 'admin:products_product_change' product.id %}?_popup=1">#}
+{#                        {% trans "Edit" %}#}
+{#                    </button>#}
+{#                {% endif %}#}
+{#                {% if product.logo %}#}
+{#                    <img src="{{ product.logo.url }}" width="100">#}
+{#                {% else %}#}
+{#                    No logo#}
+{#                {% endif %}#}
+{#            </li>#}
+{#        {% endfor %}#}
+{#    </ul>#}
+
+    <div class="container">
+        <div class="row">
+            {% for product in page_obj.object_list %}
+                <div class="col-lg-4 col-sm-4 mb-3">
+                    <div class="product-card">
+                        <a href="{{ product.get_absolute_url }}">
+                            <div class="product-thumb">
+
+                                {% if product.logo %}
+                                    <p style="text-align: center">
+                                        <img src="{{ product.logo.url }}">
+                                    </p>
+                                {% else %}
+                                    No logo
+                                {% endif %}
+                            </div>
+                            <div class="product-details">
+                                <h4>{{ product.name }}</h4>
+                                {{ product.description|truncatechars:202 }}
+                            </div>
+                            <div class="product-bottom-details d-flex justify-content-between">
+                                <div class="product-price">
+                                    {% if product.new_price %}
+                                        <small>{{ product.price }}$</small>{{ product.new_price }}
+                                    {% endif %}
+                                    {% if product.new_price is None%}
+                                        {{ product.price }}
+                                    {% endif %}
+                                </div>
+                                <div class="product-links">
+                                    <form action="{% url 'cart:add' %}" method="post">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="next" value="{{ request.get_full_path }}">
+                                        <button type="submit"
+                                                name="product"
+                                                {% if is_added_to_cart %}disabled{% endif %}
+                                                value="{{ product.id }}">
+                                            <i class="fa fa-shopping-cart"></i>
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
 
     {{ page_obj.render }}
 
