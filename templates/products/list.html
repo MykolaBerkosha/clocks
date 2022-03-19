@@ -3,94 +3,14 @@
 
 {% load i18n %}
 
+{% load static %}
+
+<head>
+    <link rel="stylesheet" href="{{ STATIC_URL }} product-list.css">
+</head>
 
 {% block content %}
-    <style>
-    .product-card {
-        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.06);
-        transition: all .3s;
-        width: 400px;
-        height: 550px;
-    }
 
-    .product-card:hover {
-        box-shadow: 0 14px 30px -15px rgba(0, 0, 0, 0.75);
-    }
-
-    .product-thumb a {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 200px;
-        padding: 20px;
-    }
-
-    .product-thumb img {
-        max-width: 250px;
-        max-height: 250px;
-    }
-
-    .product-details {
-        padding: 20px;
-    }
-
-    .product-details h4 a {
-        font-weight: 500;
-        display: block;
-        height: 60px;
-        overflow: hidden;
-        text-decoration: none;
-    }
-
-    .product-details p {
-        font-size: 15px;
-        margin-bottom: 20px;
-        color: #999;
-        height: 44px;
-        overflow: hidden;
-    }
-
-    .product-bottom-details {
-        overflow: hidden;
-        border-top: 1px solid #eee;
-        padding-top: 20px;
-    }
-
-    .product-price {
-        font-size: 18px;
-        color: #ee6e73;
-        font-weight: 600;
-    }
-
-    .product-price-old {
-        color: #333333;
-    }
-
-    .product-price small {
-        color: #ccc;
-        font-weight: 400;
-        text-decoration: line-through;
-        margin-right: 5px;
-    }
-
-    .product-links a {
-        font-size: 20px;
-        margin-left: 10px;
-    }
-    .product-title{
-        height: 65px;
-    }
-    .link{
-        color: #1f2021;
-        text-decoration: none;
-    }
-    .category-title{
-        text-align: center;
-        margin-bottom: 25px;
-        margin-top: 19px;
-    }
-
-    </style>
     <div class="category-title">
         <h4>{{ category.name }}</h4>
     </div>

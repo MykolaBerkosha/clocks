@@ -73,6 +73,7 @@ BOWER_COMPONENTS = [
 
 STYLESHEETS = [
     'bower_components/bootstrap/dist/css/bootstrap.css',
+    'product-list.css'
 ]
 
 JAVASCRIPT = [
