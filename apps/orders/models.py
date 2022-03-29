@@ -19,7 +19,7 @@ class Order(models.Model):
         ("NOVA-POSHTA", "Nova-poshta"),
         ("UKR-POSHTA", "Ukr-poshta"),
         ("Delivery-POSHTA", "Delivery-poshta"),
-        ("SELF-PICKUP", "Self-pickup")
+        ("SELF-PICKUP", _("Self-pickup"))
     )
 
     delivery_method = models.CharField(max_length=22, choices=DELIVERY_METHOD_CHOISE, default= "SELF-PICKUP")

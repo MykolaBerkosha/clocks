@@ -36,60 +36,145 @@
     </nav>
 
     <div class="row">
-        <div class="col-4">
-            {% thumbnail product.logo "100"  crop="center" as img %}
-                <img src="{{ img.url }}" class="img-thumbnail img-fluid">
-            {% empty %}
-                No logo
-            {% endthumbnail %}
-        </div>
-
-        <div class="col-8">
-            <h4>{{ product.name }}</h4>
-            {% if request.user.is_staff %}
-                <a href="{% url 'admin:products_product_change' product.id %}" target="_blank">
-                    Edit
-                </a>
-            {% endif %}
-            <table id="attributes">
-                <tr>
-                    <td>Category: </td>
-                    <td>{{ product.category.name }}</td>
-                </tr>
-                <tr>
-                    <td>Price:</td>
-                    <td>{{ product.price }}</td>
-                </tr>
-            </table>
-
-            <form action="{% url 'orders:quick-checkout' %}"
-                  method="post"
-                  data-role="quick-checkout-form"
-                  class="mb-5">
-
-                {% csrf_token %}
-
-                {{ quick_checkout_form.product }}
-
-                <div class="input-group">
-                    {{ quick_checkout_form.mobile }}
-                    <button class="btn btn-outline-secondary" type="submit">
-                        {% trans "Buy" %}
-                    </button>
+        <div class="container">
+            <div class=" product-border product-title">
+                {% if request.user.is_staff %}
+                    <a href="{% url 'admin:products_product_change' product.id %}" target="_blank">
+                        <h4>{{ product.name }}</h4>
+                    </a>
+                {% else %}
+                    <h4>{{ product.name }}</h4>
+                {% endif %}
+            </div>
+            <div class="detail">
+            <a href="#" class="product__image product-border">
+                <div class="product__switch image-switch">
+                    <div class="image-switch__item">
+                        {% thumbnail product.logo "1000"  crop="center" as img %}
+                            <img src="{{ img.url }}" class="image-switch__img" alt="Макбук">
+                        {% empty %}
+                             No logo
+                        {% endthumbnail %}
+                    </div>
                 </div>
-            </form>
+                <ul class="product__image-pagination image-pagination" aria-hidden="true"></ul>
+            </a>
 
-            <form action="{% url 'cart:add' %}" method="post">
-                {% csrf_token %}
-                <input type="hidden" name="next" value="{{ request.get_full_path }}">
-                <button type="submit"
-                        name="product"
-                        class="btn btn-success"
-                        {% if is_added_to_cart %}disabled{% endif %}
-                        value="{{ product.id }}">
-                    <i class="fa fa-shopping-cart"></i> Add to cart
-                </button>
-            </form>
+{#                    {% thumbnail product.logo "120"  crop="center" as img %}#}
+{#                        <img src="{{ img.url }}" class="">#}
+{#                    {% empty %}#}
+{#                        No logo#}
+{#                    {% endthumbnail %}#}
+
+            <div class="product-info">
+                <div class="product-price-info product-border">
+                    {% if product.availability is True  %}
+                        <div class="availability_done">
+                            <img src="{{ STATIC_URL }}img/availability_don_icon.png" class="availability_img">
+                            <h4>{% trans "Availability" %}</h4>
+                        </div>
+                    {% else %}
+                        <div class="availability-cancel">
+                            <img src="{{ STATIC_URL }}img/availability_cancel_icon.png" class="availability_img">
+                            <h4>{% trans "Under the order" %}</h4>
+                        </div>
+                    {% endif %}
+                    {% if product.new_price %}
+                        <small>{{ product.price }}$</small>
+                        <div class="product-price-sell">
+                            {{ product.new_price }}$
+                        </div>
+                    {% endif %}
+                    <div class="product-price-button">
+                        <form action="{% url 'cart:add' %}" method="post">
+                            {% csrf_token %}
+                            <input type="hidden" name="next" value="{{ request.get_full_path }}">
+                            <button type="submit"
+                                    name="product"
+                                    class="btn btn-buy_product"
+                                    {% if is_added_to_cart %}disabled{% endif %}
+                                    value="{{ product.id }}">
+                                <i class="fa fa-shopping-cart"></i>
+                                {% trans "Add to cart" %}
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                <table class="product-border table-product">
+                    <tr>
+                        <td>{% trans 'Category' %}: </td>
+                        <td>{{ product.category.name }}</td>
+                    </tr>
+                    <tr>
+                        <td>{% trans 'Price' %}:</td>
+                        <td>{{ product.price }}</td>
+                    </tr>
+                    {% if product.type_clocks %}
+                        <tr>
+                            <td>{% trans 'Type' %}:</td>
+                            <td>{{ product.type_clocks }}</td>
+                        </tr>
+                    {% endif %}
+                    {% if product.material %}
+                        <tr>
+                            <td>{% trans 'Material' %}:</td>
+                            <td>{{ product.material }}</td>
+                        </tr>
+                    {% endif %}
+                    {% if product.water_resistance %}
+                        <tr>
+                            <td>{% trans 'Water resistance' %}:</td>
+                            <td>{{ product.water_resistance }}</td>
+                        </tr>
+                    {% endif %}
+                    {% if product.case_diameter %}
+                        <tr>
+                            <td>{% trans 'Case diameter' %}:</td>
+                            <td>{{ product.case_diameter }}</td>
+                        </tr>
+                    {% endif %}
+                    {% if product.band_width %}
+                        <tr>
+                            <td>{% trans 'Band width' %}:</td>
+                            <td>{{ product.band_width }}</td>
+                        </tr>
+                    {% endif %}
+                    {% if product.functions %}
+                        <tr>
+                            <td>{% trans 'Functions' %}:</td>
+                            <td>{{ product.functions }}</td>
+                        </tr>
+                    {% endif %}
+                    {% if product.coating %}
+                        <tr>
+                            <td>{% trans 'Сoating' %}:</td>
+                            <td>{{ product.coating }}</td>
+                        </tr>
+                    {% endif %}
+                    <tr>
+                        <td>{% trans 'Description '%}:</td>
+                        <td>{{ product.description }}</td>
+                    </tr>
+                </table>
+
+                <form action="{% url 'orders:quick-checkout' %}"
+                      method="post"
+                      data-role="quick-checkout-form"
+                      class="mb-5">
+
+                    {% csrf_token %}
+
+                    {{ quick_checkout_form.product }}
+
+                    <div class="input-group">
+                        {{ quick_checkout_form.mobile }}
+                        <button class="btn btn-outline-secondary" type="submit">
+                            {% trans "Buy" %}
+                        </button>
+                    </div>
+                </form>
+
+            </div>
         </div>
     </div>
 

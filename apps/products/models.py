@@ -19,6 +19,8 @@ class Product(models.Model):
 
     objects = ProductManager()
 
+    availability = models.BooleanField(_('Availability'), default=False)
+
     category = models.ForeignKey(
         'categories.Category',
         verbose_name=_('Category'),
@@ -33,7 +35,7 @@ class Product(models.Model):
     new_price = models.FloatField(_('Price with sale'), blank=True, null=True)
 
     logo = models.ImageField(
-        _('Logo'), upload_to='product_logos', blank=True, null=True)
+        _('Logo'), upload_to='product_logos', max_length=255, blank=True, null=True)
 
     tags = models.TextField(
         _('Tags'),
@@ -42,6 +44,22 @@ class Product(models.Model):
         blank=True)
 
     description = models.TextField(max_length=1500, blank=True)
+
+    type_clocks = models.CharField(_('Type'), max_length=255, blank=True)
+
+    material = models.CharField(_('Material'), max_length=255, blank=True)
+
+    water_resistance = models.CharField(_('Water resistance'), max_length=255, blank=True)
+
+    manufacturer = models.CharField(_('Manufacturer'), max_length=255, blank=True)
+
+    case_diameter = models.CharField(_('Case diameter'), max_length=255, blank=True)
+
+    band_width = models.CharField(_('Band Width:'), max_length=255, blank=True)
+
+    functions = models.CharField(_('Functions'), max_length=255, blank=True)
+
+    coating = models.CharField(_('Coating'), max_length=255, blank=True)
 
     def __str__(self):
         return self.name

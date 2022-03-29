@@ -8,7 +8,9 @@ from watermarks.models import WatermarkImage
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
 
-    list_display = ['id', 'category', 'name', 'price', 'slug', 'description', 'new_price']
+    list_display = ['id', 'category', 'name', 'price', 'availability','slug', 'description', 'new_price',
+                    'type_clocks', 'material', 'water_resistance', 'manufacturer',
+                    'case_diameter', 'band_width', 'functions', 'coating',]
     list_filter = ['category']
 
     def save_model(self, request, obj, form, change):

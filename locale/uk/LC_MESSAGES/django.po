@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-16 16:08+0200\n"
+"POT-Creation-Date: 2022-03-29 18:00+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,16 +29,21 @@ msgstr "Товар додано до кошика"
 msgid "Cart was cleared"
 msgstr "Кошик очищено "
 
-#: apps/categories/models.py:11 apps/products/models.py:29
+#: apps/categories/models.py:11 apps/products/models.py:31
 #: apps/reviews/models.py:8
 msgid "Name"
 msgstr "Назва"
 
-#: apps/categories/models.py:24 apps/products/models.py:24
+#: apps/categories/models.py:14 apps/products/models.py:38
+msgid "Logo"
+msgstr ""
+
+#: apps/categories/models.py:27 apps/products/models.py:26
+#: templates/products/detail.html:126
 msgid "Category"
 msgstr "Категорія"
 
-#: apps/categories/models.py:25
+#: apps/categories/models.py:28
 msgid "Categories"
 msgstr "Категорії"
 
@@ -58,6 +63,10 @@ msgstr "Номер телефону"
 msgid "Created"
 msgstr "Створити"
 
+#: apps/orders/models.py:22
+msgid "Self-pickup"
+msgstr ""
+
 #: apps/orders/models.py:27 apps/orders/models.py:29
 msgid "Delivery district address"
 msgstr ""
@@ -74,25 +83,61 @@ msgstr ""
 msgid "Orders"
 msgstr ""
 
-#: apps/products/models.py:31
+#: apps/products/models.py:22 templates/products/detail.html:73
+msgid "Availability"
+msgstr ""
+
+#: apps/products/models.py:33 templates/products/detail.html:130
 msgid "Price"
 msgstr ""
 
-#: apps/products/models.py:34
-msgid "Logo"
+#: apps/products/models.py:35
+msgid "Price with sale"
 msgstr ""
 
-#: apps/products/models.py:37
+#: apps/products/models.py:41
 msgid "Tags"
 msgstr ""
 
-#: apps/products/models.py:55
-msgid "Product"
-msgstr ""
+#: apps/products/models.py:48 templates/products/detail.html:135
+msgid "Type"
+msgstr "Тип"
 
-#: apps/products/models.py:56
+#: apps/products/models.py:50 templates/products/detail.html:141
+msgid "Material"
+msgstr "Матеріал"
+
+#: apps/products/models.py:52 templates/products/detail.html:147
+msgid "Water resistance"
+msgstr "Водостійкість"
+
+#: apps/products/models.py:54
+msgid "Manufacturer"
+msgstr "Виробник"
+
+#: apps/products/models.py:56 templates/products/detail.html:153
+msgid "Case diameter"
+msgstr "Діаметр корпуса"
+
+#: apps/products/models.py:58
+msgid "Band Width:"
+msgstr "Шерина ремішка"
+
+#: apps/products/models.py:60 templates/products/detail.html:165
+msgid "Functions"
+msgstr "Функції"
+
+#: apps/products/models.py:62
+msgid "Coating"
+msgstr "Покриття"
+
+#: apps/products/models.py:77
+msgid "Product"
+msgstr "Товар"
+
+#: apps/products/models.py:78
 msgid "Products"
-msgstr ""
+msgstr "Товари"
 
 #: apps/reviews/models.py:10
 msgid "Text"
@@ -437,7 +482,7 @@ msgid "Щоб створити новий аккаунт Вам потрібно
 msgstr ""
 
 #: templates/accounts/signup.html:71
-msgid "Вийти"
+msgid "вийти"
 msgstr ""
 
 #: templates/base.html:57 templates/base.html:66
@@ -486,12 +531,29 @@ msgid "Clean"
 msgstr ""
 
 #: templates/products/detail.html:77
+msgid "Under the order"
+msgstr "Немає в наявності"
+
+#: templates/products/detail.html:96 templates/products/detail.html:116
+#| msgid "Add product"
+msgid "Add to cart"
+msgstr "Додати товар до кошика"
+
+#: templates/products/detail.html:159
+msgid "Band width"
+msgstr "Шерина ремішка"
+
+#: templates/products/detail.html:171
+msgid "Сoating"
+msgstr "Покриття"
+
+#: templates/products/detail.html:176
+msgid "Description "
+msgstr "Опис"
+
+#: templates/products/detail.html:193
 msgid "Buy"
 msgstr "Купити"
-
-#: templates/products/list.html:19
-msgid "Edit"
-msgstr "Редагувати"
 
 #: templates/products/search.html:24
 msgid "Search by"
@@ -500,3 +562,9 @@ msgstr "Пошук за"
 #: templates/products/search.html:39
 msgid "No products"
 msgstr "Немає продуктів"
+
+#~ msgid "Case Diameter"
+#~ msgstr "Діаметр корпуса"
+
+#~ msgid "Edit"
+#~ msgstr "Редагувати"
