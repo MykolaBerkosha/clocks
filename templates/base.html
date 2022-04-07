@@ -51,7 +51,7 @@
 {#                        <a class="nav-link" href="{% url 'cart:index' %}">#}
 {#                            Cart#}
 {#                        </a>#}
-                        <a data-role="add-to-cart" data-url="{% url 'cart:index' %}">
+                        <a  class="nav-link" data-role="add-to-cart" data-url="{% url 'cart:index' %}">
                             {% trans "Cart" %}({{ cart.count }} / {{ cart.total }} uah)
                         </a>
                     </li>
