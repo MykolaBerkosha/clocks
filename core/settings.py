@@ -75,7 +75,10 @@ STYLESHEETS = [
     'bower_components/bootstrap/dist/css/bootstrap.css',
     'product-list.css',
     'category-list.css',
-    'style.css'
+    'style.css',
+    'modal-cart.css',
+    'cart-styles.css',
+    'orders-checkout-styles.css',
 ]
 
 JAVASCRIPT = [

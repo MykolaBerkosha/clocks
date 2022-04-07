@@ -48,8 +48,11 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'cart:index' %}">
-                            Cart ({{ cart.count }} / {{ cart.total }} uah)
+{#                        <a class="nav-link" href="{% url 'cart:index' %}">#}
+{#                            Cart#}
+{#                        </a>#}
+                        <a data-role="add-to-cart" data-url="{% url 'cart:index' %}">
+                            {% trans "Cart" %}({{ cart.count }} / {{ cart.total }} uah)
                         </a>
                     </li>
                     <li class="nav-item dropdown">
@@ -150,6 +153,10 @@
 
                 new Modal({
                     $target: $('[data-role=add-callback]')
+                });
+
+                new Modal({
+                    $target: $('[data-role=add-to-cart]')
                 });
 
                 $('[data-role=add-product]').on('click', function () {

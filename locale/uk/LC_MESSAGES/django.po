@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-29 18:00+0300\n"
+"POT-Creation-Date: 2022-04-07 13:16+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -39,7 +39,7 @@ msgid "Logo"
 msgstr ""
 
 #: apps/categories/models.py:27 apps/products/models.py:26
-#: templates/products/detail.html:126
+#: templates/products/detail.html:123
 msgid "Category"
 msgstr "Категорія"
 
@@ -47,15 +47,15 @@ msgstr "Категорія"
 msgid "Categories"
 msgstr "Категорії"
 
-#: apps/orders/models.py:9
+#: apps/orders/models.py:9 templates/orders/checkout.html:19
 msgid "First name"
 msgstr "Імя"
 
-#: apps/orders/models.py:12
+#: apps/orders/models.py:12 templates/orders/checkout.html:23
 msgid "Last name"
 msgstr "Прізвища"
 
-#: apps/orders/models.py:14
+#: apps/orders/models.py:14 templates/orders/checkout.html:27
 msgid "Mobile number"
 msgstr "Номер телефону"
 
@@ -65,15 +65,15 @@ msgstr "Створити"
 
 #: apps/orders/models.py:22
 msgid "Self-pickup"
-msgstr ""
+msgstr "Самовивіз"
 
 #: apps/orders/models.py:27 apps/orders/models.py:29
 msgid "Delivery district address"
 msgstr ""
 
-#: apps/orders/models.py:31
+#: apps/orders/models.py:31 templates/orders/checkout.html:50
 msgid "Post office"
-msgstr ""
+msgstr "Поштове відділення"
 
 #: apps/orders/models.py:37
 msgid "Order"
@@ -83,11 +83,11 @@ msgstr ""
 msgid "Orders"
 msgstr ""
 
-#: apps/products/models.py:22 templates/products/detail.html:73
+#: apps/products/models.py:22 templates/products/detail.html:74
 msgid "Availability"
 msgstr ""
 
-#: apps/products/models.py:33 templates/products/detail.html:130
+#: apps/products/models.py:33 templates/products/detail.html:127
 msgid "Price"
 msgstr ""
 
@@ -99,15 +99,15 @@ msgstr ""
 msgid "Tags"
 msgstr ""
 
-#: apps/products/models.py:48 templates/products/detail.html:135
+#: apps/products/models.py:48 templates/products/detail.html:132
 msgid "Type"
 msgstr "Тип"
 
-#: apps/products/models.py:50 templates/products/detail.html:141
+#: apps/products/models.py:50 templates/products/detail.html:138
 msgid "Material"
 msgstr "Матеріал"
 
-#: apps/products/models.py:52 templates/products/detail.html:147
+#: apps/products/models.py:52 templates/products/detail.html:144
 msgid "Water resistance"
 msgstr "Водостійкість"
 
@@ -115,7 +115,7 @@ msgstr "Водостійкість"
 msgid "Manufacturer"
 msgstr "Виробник"
 
-#: apps/products/models.py:56 templates/products/detail.html:153
+#: apps/products/models.py:56 templates/products/detail.html:150
 msgid "Case diameter"
 msgstr "Діаметр корпуса"
 
@@ -123,7 +123,7 @@ msgstr "Діаметр корпуса"
 msgid "Band Width:"
 msgstr "Шерина ремішка"
 
-#: apps/products/models.py:60 templates/products/detail.html:165
+#: apps/products/models.py:60 templates/products/detail.html:162
 msgid "Functions"
 msgstr "Функції"
 
@@ -485,32 +485,37 @@ msgstr ""
 msgid "вийти"
 msgstr ""
 
-#: templates/base.html:57 templates/base.html:66
+#: templates/base.html:55 templates/cart/index.html:12
+#: templates/orders/checkout.html:59
+msgid "Cart"
+msgstr ""
+
+#: templates/base.html:60 templates/base.html:69
 msgid "Reviews"
 msgstr "Відгук"
 
-#: templates/base.html:61 templates/reviews/add.html:8
+#: templates/base.html:64 templates/reviews/add.html:8
 #: templates/reviews/review_list.html:10
 msgid "Add review"
 msgstr "Додати відгук"
 
-#: templates/base.html:73 templates/callback/add_callback.html:8
+#: templates/base.html:76 templates/callback/add_callback.html:8
 msgid "Add callback"
 msgstr "Зворотній дзвінок"
 
-#: templates/base.html:80
+#: templates/base.html:83
 msgid "Add product"
 msgstr "Додати товар"
 
-#: templates/base.html:118
+#: templates/base.html:121
 msgid "Logout"
 msgstr "Вийти"
 
-#: templates/base.html:122
+#: templates/base.html:125
 msgid "Login"
 msgstr "Увійти"
 
-#: templates/base.html:126
+#: templates/base.html:129
 msgid "Реєстрація"
 msgstr ""
 
@@ -522,38 +527,61 @@ msgstr "Зберегти"
 msgid "Cancel"
 msgstr "Відмінити"
 
-#: templates/cart/index.html:50
+#: templates/cart/index.html:107
 msgid "Checkout"
 msgstr ""
 
-#: templates/cart/index.html:58
+#: templates/cart/index.html:115
 msgid "Clean"
 msgstr ""
 
-#: templates/products/detail.html:77
+#: templates/orders/checkout.html:14
+msgid "Contact info"
+msgstr "Контактна інформація"
+
+#: templates/orders/checkout.html:33
+msgid "Choose a delivery method"
+msgstr "Оберіть спосіб доставки"
+
+#: templates/orders/checkout.html:36
+msgid "Delivery method"
+msgstr ""
+
+#: templates/orders/checkout.html:42
+msgid "District"
+msgstr "Район"
+
+#: templates/orders/checkout.html:46
+msgid "Region"
+msgstr "Область"
+
+#: templates/orders/checkout.html:71
+msgid "Amount due"
+msgstr "Загальна сума"
+
+#: templates/products/detail.html:79
 msgid "Under the order"
 msgstr "Немає в наявності"
 
-#: templates/products/detail.html:96 templates/products/detail.html:116
-#| msgid "Add product"
+#: templates/products/detail.html:98
 msgid "Add to cart"
 msgstr "Додати товар до кошика"
 
-#: templates/products/detail.html:159
+#: templates/products/detail.html:114
+msgid "Buy"
+msgstr "Купити"
+
+#: templates/products/detail.html:156
 msgid "Band width"
 msgstr "Шерина ремішка"
 
-#: templates/products/detail.html:171
+#: templates/products/detail.html:168
 msgid "Сoating"
 msgstr "Покриття"
 
-#: templates/products/detail.html:176
+#: templates/products/detail.html:177
 msgid "Description "
 msgstr "Опис"
-
-#: templates/products/detail.html:193
-msgid "Buy"
-msgstr "Купити"
 
 #: templates/products/search.html:24
 msgid "Search by"

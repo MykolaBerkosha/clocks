@@ -37,7 +37,7 @@
 
     <div class="row">
         <div class="container">
-            <div class=" product-border product-title">
+            <div class=" product-border product-name-title">
                 {% if request.user.is_staff %}
                     <a href="{% url 'admin:products_product_change' product.id %}" target="_blank">
                         <h4>{{ product.name }}</h4>
@@ -98,6 +98,24 @@
                                 {% trans "Add to cart" %}
                             </button>
                         </form>
+                        <div class="product-price-quick-checkout">
+                            <form action="{% url 'orders:quick-checkout' %}"
+                                  method="post"
+                                  data-role="quick-checkout-form"
+                                  class="mb-5">
+
+                                {% csrf_token %}
+
+                                {{ quick_checkout_form.product }}
+
+                                <div class="input-group">
+                                    {{ quick_checkout_form.mobile }}
+                                    <button class="btn btn-buy_product" type="submit">
+                                        {% trans "Buy" %}
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
                 <table class="product-border table-product">
@@ -151,28 +169,17 @@
                             <td>{{ product.coating }}</td>
                         </tr>
                     {% endif %}
-                    <tr>
-                        <td>{% trans 'Description '%}:</td>
-                        <td>{{ product.description }}</td>
-                    </tr>
+
                 </table>
 
-                <form action="{% url 'orders:quick-checkout' %}"
-                      method="post"
-                      data-role="quick-checkout-form"
-                      class="mb-5">
-
-                    {% csrf_token %}
-
-                    {{ quick_checkout_form.product }}
-
-                    <div class="input-group">
-                        {{ quick_checkout_form.mobile }}
-                        <button class="btn btn-outline-secondary" type="submit">
-                            {% trans "Buy" %}
-                        </button>
+                <div class="product-border">
+                    <div class="product-description-label">
+                        {% trans 'Description '%}:
                     </div>
-                </form>
+                    <div class="product-description">
+                        {{ product.description }}
+                    </div>
+                </div>
 
             </div>
         </div>

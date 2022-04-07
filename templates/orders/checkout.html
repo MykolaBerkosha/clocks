@@ -5,41 +5,93 @@
 
 
 {% block content %}
-
-    <h4>New order</h4>
-
     <form method="post">
-        {% csrf_token %}
-
-        {{ form.as_p }}
-
-        <button type="submit" class="btn btn-success">
-            <i class="fa fa-check"></i>
-            Save
-        </button>
+        <div class="container">
+            <div class="row">
+            <div style="display: inline-flex">
+                <div class="block-order order-border">
+                    <div class="order-title">
+                        {% trans "Contact info" %}
+                    </div>
+                    <div class="order-info">
+                        <table class="table-order-contact">
+                            <tr>
+                                <td>{% trans "First name" %}</td>
+                                <td>{{ form.first_name }}</td>
+                            </tr>
+                            <tr>
+                                <td>{% trans "Last name" %}</td>
+                                <td>{{ form.last_name }}</td>
+                            </tr>
+                            <tr>
+                                <td>{% trans "Mobile number" %}</td>
+                                <td>{{ form.mobile }}</td>
+                            </tr>
+                        </table>
+                        <div class="order-deliver">
+                            <div class="order-delivery-title">
+                                {% trans "Choose a delivery method" %}
+                            </div>
+                            <div class="order-delivery-method">
+                                {% trans "Delivery method" %}
+                                {{ form.delivery_method }}
+                            </div>
+                            <div data-role="address">
+                                <table class="table-delivery-district">
+                                    <tr>
+                                        <td>{% trans "District" %}</td>
+                                        <td>{{ form.delivery_district_address }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>{% trans "Region" %}</td>
+                                        <td>{{ form.delivery_region_address }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>{% trans "Post office" %}</td>
+                                        <td>{{ form.post_office }}</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="order-card order-border">
+                    <h4>{% trans "Cart" %}</h4>
+                    <table class="table-order-cart">
+                        {% for product in cart.get_products %}
+                            <tr>
+                                <td>{{ product.name }}</td>
+                                <td style="text-align: right">{{ product.price }}</td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+                    <div class="order-sum">
+                        <table class="table-order-sum">
+                            <tr>
+                                <td>{% trans "Amount due" %}</td>
+                                <td style="text-align: right">{{ cart.total }} uah</td>
+                            </tr>
+                        </table>
+                    </div>
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-success">
+                        <i class="fa fa-check"></i>
+                        Save
+                    </button>
+                </div>
+            </div>
+        </div>
     </form>
-
 {% endblock %}
 
 {% block js %}
     {{ block.super }}
     <script>
         (function ($) {
+
             new SelectChainedBox({
                 $select: $('#{{ form.delivery_method.auto_id }}'),
-                $target: $('#{{ form.post_office.auto_id }}'),
-                value: 'SELF-PICKUP',
-                isReversed: true
-            });
-            new SelectChainedBox({
-                $select: $('#{{ form.delivery_method.auto_id }}'),
-                $target: $('#{{ form.delivery_district_address.auto_id }}'),
-                value: 'SELF-PICKUP',
-                isReversed: true
-            });
-            new SelectChainedBox({
-                $select: $('#{{ form.delivery_method.auto_id }}'),
-                $target: $('#{{ form.delivery_region_address.auto_id }}'),
+                $target: $('[data-role=address]'),
                 value: 'SELF-PICKUP',
                 isReversed: true
             });

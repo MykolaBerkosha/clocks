@@ -1,0 +1,79 @@
+
+.block-order{
+    font-size: 20px;
+    width: 550px;
+}
+
+.order-border{
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.06);
+    transition: all .3s;
+	margin-top: 20px;
+	background: #fafafa;
+}
+
+.order-border:hover {
+    box-shadow: 0 14px 30px -15px rgba(0, 0, 0, 0.75);
+}
+
+.order-title{
+    font-size: 30px;
+}
+
+.order-info{
+    padding: 10px 15px;
+}
+
+.table-order-contact td{
+    padding-top:10px;
+    padding-bottom: 10px;
+}
+
+.table-order-contact td:first-child{
+    padding-right: 10px;
+}
+
+.order-delivery{
+    width:550px;
+}
+
+.order-card{
+    width:450px;
+    height:300px;
+    margin-left: 25px;
+    padding: 10px 15px;
+}
+
+.table-order-cart td:first-child{
+    min-width: 360px;
+    max-width: 370px;
+    padding-bottom:10px;
+}
+
+.order-sum{
+    border-top: 1px solid #b8b8b8;
+    padding-top: 10px;
+}
+
+.table-order-sum td:first-child{
+    min-width: 320px;
+}
+
+.order-delivery-method{
+    padding-top: 10px;
+}
+
+.order-delivery-title{
+    font-size: 30px;
+    margin-left: -14px;
+    padding-top: 10px;
+}
+
+.table-delivery-district td{
+    padding-top:10px;
+    padding-bottom: 10px;
+}
+
+.table-delivery-district td:first-child{
+    padding-right: 10px;
+}
+

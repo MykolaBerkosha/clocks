@@ -121,6 +121,7 @@
 .table-product {
 	font-size: 20px;
 	margin-top: 20px;
+	width: 840px;
 }
 
 .table-product td{
@@ -180,6 +181,7 @@
 .product-price-button{
 	padding-top: 6px;
 	padding-bottom: 10px;
+	display: flex;
 }
 
 .btn-buy_product {
@@ -188,4 +190,30 @@
 	border-color: #767676;
 }
 
+.product-price-quick-checkout{
+	padding: 7px;
+}
 
+.product-name-title {
+	min-height: 65px;
+	max-height: 120px;
+	text-align: center;
+	padding-top: 14px;
+}
+
+.product-name-title a {
+	color: #1f2021;
+	text-decoration: none;
+}
+
+.product-description-label{
+	font-size: 25px;
+	padding-top: 10px;
+	text-align: center;
+}
+
+.product-description{
+	font-size: 20px;
+	padding-left: 20px;
+	padding-bottom: 10px;
+}

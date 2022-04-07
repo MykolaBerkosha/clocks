@@ -38,32 +38,3 @@
         </div>
     </div>
 {% endblock %}
-
-
-{% block js %}
-    {{ block.super }}
-    <script>
-        (function ($) {
-            new Modal({
-                $target: $('[data-role=add-review]')
-            });
-
-            new Modal({
-                $target: $('[data-role=add-callback]')
-            });
-
-            $('[data-role=add-product]').on('click', function () {
-                window.open(
-                    $(this).data('url'),
-                    "",
-                    "left=100,top=100,width=1000,height=600"
-                );
-            });
-
-            window.dismissAddRelatedObjectPopup = function (popup) {
-                popup.close();
-                window.location.reload();
-            };
-        })(jQuery);
-    </script>
-{% endblock %}
