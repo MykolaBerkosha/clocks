@@ -1,12 +1,7 @@
 
 {% extends 'modal.html' %}
 
-
-{% load i18n %}
-
-<head>
-    <link rel="stylesheet" href="{{ STATIC_URL }} cart-styles.css">
-</head>
+{% load i18n cart %}
 
 {% block title %}
     {% trans "Cart" %}
@@ -14,90 +9,37 @@
 
 {% block body %}
 
-    <form action="{{ request.get_full_path }}"
-          method="post"
-          enctype="multipart/form-data">
+    {% get_cart as cart %}
 
-        {% csrf_token %}
+    <table class="table table-bordered">
 
-    hmgkbnfiun
-         {% for product in cart.get_products %}
-                {{ product.id }}
-                Name
-                {{ product.name }}
-                Price
-                {{ product.price }}
-                    <form action="{% url 'cart:remove' %}" method="post">
-                        {% csrf_token %}
-                        <input type="hidden" name="next" value="{{ request.get_full_path }}">
-                        <button type="submit"
-                                name="product"
-                                class="btn btn-danger"
-                                value="{{ product.id }}">
-                            <i class="fa fa-trash"></i> Delete
-                        </button>
-                    </form>
-        {% endfor %}
-    </form>
-            {{ product.name }}
-
-{#    <div class="cart-info">#}
-        {% for product in cart.get_products %}
-            {{ product.id }}
-            Name
-            {{ product.name }}
-            Price
-            {{ product.price }}
-                <form action="{% url 'cart:remove' %}" method="post">
-                    {% csrf_token %}
-                    <input type="hidden" name="next" value="{{ request.get_full_path }}">
-                    <button type="submit"
-                            name="product"
-                            class="btn btn-danger"
-                            value="{{ product.id }}">
-                        <i class="fa fa-trash"></i> Delete
-                    </button>
-                </form>
-        {% endfor %}
-{##}
-{#            {{ cart.total }}#}
-{#    </div>#}
-{#    <table class="table table-bordered">#}
-{#        <thead>#}
-{#            <tr>#}
-{#                <th>#</th>#}
-{#                <th>Name</th>#}
-{#                <th>Price</th>#}
-{#                <th>Remove</th>#}
-{#            </tr>#}
-{#        </thead>#}
-{#        <tbody>#}
-{#            {% for product in cart.get_products %}#}
-{#                <tr>#}
-{#                    <td>{{ product.id }}</td>#}
-{#                    <td>{{ product.name }}</td>#}
-{#                    <td>{{ product.price }}</td>#}
-{#                    <td>#}
-{#                        <form action="{% url 'cart:remove' %}" method="post">#}
-{#                            {% csrf_token %}#}
-{#                            <input type="hidden" name="next" value="{{ request.get_full_path }}">#}
-{#                            <button type="submit"#}
-{#                                    name="product"#}
-{#                                    class="btn btn-danger"#}
-{#                                    value="{{ product.id }}">#}
-{#                                <i class="fa fa-trash"></i> Delete#}
-{#                            </button>#}
-{#                        </form>#}
-{#                    </td>#}
-{#                </tr>#}
-{#            {% endfor %}#}
-{#            <tr>#}
-{#                <td colspan="4" class="text-end">#}
-{#                    <b>{{ cart.total }} uah</b>#}
-{#                </td>#}
-{#            </tr>#}
-{#        </tbody>#}
-{#    </table>#}
+        <tbody>
+            {% for product in cart.get_products %}
+                <tr>
+                    <td>{{ product.id }}</td>
+                    <td>{{ product.name }}</td>
+                    <td>{{ product.price }}</td>
+                    <td>
+                        <form action="{% url 'cart:remove' %}" method="post">
+                            {% csrf_token %}
+                            <input type="hidden" name="next" value="{{ request.get_full_path }}">
+                            <button type="submit"
+                                    name="product"
+                                    class="btn btn-danger"
+                                    value="{{ product.id }}">
+                                <i class="fa fa-trash"></i> Delete
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+            <tr>
+                <td colspan="4" class="text-end">
+                    <b>{{ cart.total }} uah</b>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 
 {% endblock %}
 
