@@ -13,9 +13,5 @@ class Callback(models.Model):
 
     outstanding = models.BooleanField('Outstanding', default=False)
 
-    # yorchoices = (('executed', "EXECUTED"),
-    #     ('outstanding', "OUTSTANDING"))
-    #
-    # choice = models.CharField(max_length=250, choices=yorchoices)
 
 

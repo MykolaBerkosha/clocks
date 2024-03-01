@@ -23,7 +23,7 @@
 }
 
 .product-details {
-    padding: 20px;
+    padding: 0 20px 0 20px;
 }
 
 .product-details h4 a {
@@ -45,7 +45,7 @@
 .product-bottom-details {
     overflow: hidden;
     border-top: 1px solid #eee;
-    padding-top: 9px;
+    padding: 10px 20px 0 20px;
 }
 
 .product-price {
