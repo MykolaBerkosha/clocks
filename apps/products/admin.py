@@ -16,5 +16,5 @@ class ProductAdmin(admin.ModelAdmin):
     def save_model(self, request, obj, form, change):
         super().save_model(request, obj, form, change)
 
-        watermark = WatermarkImage.get('product')
-        watermark.process(obj.logo.path)
+        # watermark = WatermarkImage.get('product')
+        # watermark.process(obj.logo.path)
